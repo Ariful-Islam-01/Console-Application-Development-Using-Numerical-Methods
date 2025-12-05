@@ -3,8 +3,6 @@ Initial Augmented Matrix:
         -3        -1         2       -11
         -2         1         2        -3
 
-====== Forward Elimination (Gaussian Elimination) ======
-
 Matrix after step 1:
          2         1        -1         8
          0       0.5       0.5         1

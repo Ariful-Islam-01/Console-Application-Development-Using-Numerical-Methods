@@ -32,6 +32,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Bi-section Method/bisection.cpp" />
+		<Unit filename="False Position Method/falseposition.cpp" />
+		<Unit filename="Gauss elimination/gauss.cpp" />
+		<Unit filename="Gausss-Jordan elimination/gauss_jordan.cpp" />
+		<Unit filename="Newton-Raphson Method/newtonrapson.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

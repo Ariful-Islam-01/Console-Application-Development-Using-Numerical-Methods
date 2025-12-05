@@ -1,0 +1,6 @@
+Iteration 1 : x = 0.608519
+Iteration 2 : x = 0.607102
+Iteration 3 : x = 0.607102
+
+Root = 0.607102
+Total iterations = 3
