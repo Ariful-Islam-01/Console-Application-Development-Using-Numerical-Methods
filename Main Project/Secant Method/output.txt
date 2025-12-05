@@ -1,0 +1,6 @@
+Iteration 1 : x = 0.578085
+Iteration 2 : x = 0.605959
+Iteration 3 : x = 0.607106
+Iteration 4 : x = 0.607102
+
+Root is : 0.607102 after 5 iterations
