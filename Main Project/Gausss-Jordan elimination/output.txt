@@ -1,0 +1,42 @@
+===== Reading Augmented Matrix from input.txt =====
+
+Initial Matrix:
+         2         1        -1         8
+        -3        -1         2       -11
+        -2         1         2        -3
+
+===== Gauss–Jordan Elimination Steps =====
+
+Pivot change: Row 1 swapped with Row 2
+Normalizing Row 1 (dividing by -3)
+Eliminating Row 2 using Row 1 (factor = 2)
+Eliminating Row 3 using Row 1 (factor = -2)
+
+Matrix after step 1:
+         1  0.333333 -0.666667   3.66667
+         0  0.333333  0.333333  0.666667
+         0   1.66667  0.666667   4.33333
+
+Pivot change: Row 2 swapped with Row 3
+Normalizing Row 2 (dividing by 1.66667)
+Eliminating Row 1 using Row 2 (factor = 0.333333)
+Eliminating Row 3 using Row 2 (factor = 0.333333)
+
+Matrix after step 2:
+         1         0      -0.8       2.8
+         0         1       0.4       2.6
+         0         0       0.2      -0.2
+
+Normalizing Row 3 (dividing by 0.2)
+Eliminating Row 1 using Row 3 (factor = -0.8)
+Eliminating Row 2 using Row 3 (factor = 0.4)
+
+Matrix after step 3:
+         1         0         0         2
+         0         1         0         3
+         0         0         1        -1
+
+===== Final Solution =====
+x1 = 2
+x2 = 3
+x3 = -1

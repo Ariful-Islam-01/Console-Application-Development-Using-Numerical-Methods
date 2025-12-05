@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1764929490 source:e:\coding\numerical lab project\console-application-development-using-numerical-methods\main project\gauss elimination\gauss.cpp
+	<bits/stdc++.h>
+
+1764931000 source:e:\coding\numerical lab project\console-application-development-using-numerical-methods\main project\main.cpp
+	<bits/stdc++.h>
+	"Gauss elimination/gauss.h"
+	"Gausss-Jordan elimination/gauss_jordan.h"
+
+1764927873 e:\coding\numerical lab project\console-application-development-using-numerical-methods\main project\gauss elimination\gauss.h
+
+1764930670 e:\coding\numerical lab project\console-application-development-using-numerical-methods\main project\gausss-jordan elimination\gauss_jordan.h
+
+1764931233 source:e:\coding\numerical lab project\console-application-development-using-numerical-methods\main project\gausss-jordan elimination\gauss_jordan.cpp
+	<bits/stdc++.h>
+
