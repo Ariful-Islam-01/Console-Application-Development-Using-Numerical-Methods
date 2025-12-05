@@ -2,14 +2,17 @@
 1764931777 source:e:\coding\numerical lab project\console-application-development-using-numerical-methods\main project\gauss elimination\gauss.cpp
 	<bits/stdc++.h>
 
-1764949030 source:e:\coding\numerical lab project\console-application-development-using-numerical-methods\main project\main.cpp
+1764951146 source:e:\coding\numerical lab project\console-application-development-using-numerical-methods\main project\main.cpp
 	<bits/stdc++.h>
 	"Gauss elimination/gauss.h"
 	"Gausss-Jordan elimination/gauss_jordan.h"
 	"Bi-section Method/bisection.h"
+	"LU factorization/lu_factorization.h"
 	"False Position Method/falseposition.h"
 	"Newton-Raphson Method/newton_raphson.h"
 	"Secant Method/secant.h"
+	"Runge-Kutta Method/RK.h"
+	"Matrix Inversion Method/matrix_inverse.h"
 
 1764927873 e:\coding\numerical lab project\console-application-development-using-numerical-methods\main project\gauss elimination\gauss.h
 
@@ -37,4 +40,16 @@
 	<bits/stdc++.h>
 
 1764948582 e:\coding\numerical lab project\console-application-development-using-numerical-methods\main project\secant method\secant.h
+
+1764949692 source:e:\coding\numerical lab project\console-application-development-using-numerical-methods\main project\runge-kutta method\rk.cpp
+	<bits/stdc++.h>
+
+1764950363 source:e:\coding\numerical lab project\console-application-development-using-numerical-methods\main project\lu factorization\lu_factorization.cpp
+	<bits/stdc++.h>
+
+1764950505 e:\coding\numerical lab project\console-application-development-using-numerical-methods\main project\lu factorization\lu_factorization.h
+
+1764949581 e:\coding\numerical lab project\console-application-development-using-numerical-methods\main project\runge-kutta method\rk.h
+
+1764950992 e:\coding\numerical lab project\console-application-development-using-numerical-methods\main project\matrix inversion method\matrix_inverse.h
 

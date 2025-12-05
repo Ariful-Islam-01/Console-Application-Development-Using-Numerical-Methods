@@ -1,0 +1,19 @@
+L matrix:
+1 0 0 
+2 1 0 
+-1 -1 1 
+
+U matrix:
+2 1 1 
+0 -8 -2 
+0 0 1 
+
+Y vector:
+5
+-12
+2
+
+Unique Solutions:
+x1 = 1
+x2 = 1
+x3 = 2

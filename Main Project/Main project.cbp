@@ -36,7 +36,9 @@
 		<Unit filename="False Position Method/falseposition.cpp" />
 		<Unit filename="Gauss elimination/gauss.cpp" />
 		<Unit filename="Gausss-Jordan elimination/gauss_jordan.cpp" />
+		<Unit filename="LU factorization/lu_factorization.cpp" />
 		<Unit filename="Newton-Raphson Method/newtonrapson.cpp" />
+		<Unit filename="Runge-Kutta Method/RK.cpp" />
 		<Unit filename="Secant Method/secant.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
