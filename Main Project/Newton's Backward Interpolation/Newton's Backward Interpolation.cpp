@@ -3,7 +3,7 @@ using namespace std;
 
 long long fact(int n){
     long long f = 1;
-    for(int i = 2; i <= n; i++){
+    for(int i=2; i<=n; i++){
         f *= i;
     }
     return f;
@@ -21,50 +21,47 @@ int main(){
         cout<<"Error: Can't open output.txt!"<<endl;
         return 0;
     }
-
+    
     int n;
     fin>>n;
 
     double x[n], y[n][10];
-
-    for(int i = 0; i < n; i++){
+    for(int i=0; i<n; i++){
         fin>>x[i];
     }
-
-    for(int i = 0; i < n; i++){
+    for(int i=0; i<n; i++){
         fin>>y[i][0];
     }
 
-    for(int j = 1; j < n; j++){
-        for(int i = 0; i < n - j; i++){
-            y[i][j] = y[i + 1][j - 1] - y[i][j - 1];
+    for(int j=1; j<n; j++){
+        for(int i=n-1; i>=j; i--){
+            y[i][j] = y[i][j-1] - y[i-1][j-1];
         }
     }
 
-    fout<<"\nForward Difference Table:\n";
-    for(int i = 0; i < n; i++){
+    fout<<"\nBackward Difference Table:\n";
+    for(int i=0; i<n; i++){
         fout<<x[i]<<"\t";
-        for(int j = 0; j < n - i; j++){
+        for(int j=0; j<=i; j++){
             fout<<y[i][j]<<"\t";
         }
         fout<<endl;
     }
 
-    double value;
-    fin>>value;
-
+    double val;
+    fin>>val;
+    
     double h = x[1] - x[0];
-    double u = (value - x[0]) / h;
+    double v = (val - x[n-1]) / h;
 
-    double sum = y[0][0];
-    double u_term = 1;
-
-    for(int i = 1; i < n; i++){
-        u_term *= (u - (i - 1));
-        sum += (u_term * y[0][i]) / fact(i);
+    double sum = y[n-1][0];
+    double v_term = 1;
+    for(int i=1; i<n; i++){
+        v_term *= (v + (i-1));
+        sum += (v_term * y[n-1][i]) / fact(i);
     }
 
-    fout<<"\nInterpolated value at x = "<<value<<" is "<<sum<<endl;
+    fout<<"\nInterpolated value at x = "<<val<<" is "<<sum<<endl;
 
     fin.close();
     fout.close();
