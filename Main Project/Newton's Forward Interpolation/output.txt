@@ -1,0 +1,8 @@
+
+Forward Difference Table:
+3	180	-30	0	0	
+5	150	-30	0	
+7	120	-30	
+9	90	
+
+Interpolated value at x = 4 is 165
