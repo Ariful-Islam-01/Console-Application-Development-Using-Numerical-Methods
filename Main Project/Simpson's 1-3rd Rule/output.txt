@@ -1,0 +1,5 @@
+
+f(x) = 1 / (1 + x * x)
+where, lower limit = 0 , upper limit = 1 , Number of intervals = 4
+
+The value of integral: 0.785392
