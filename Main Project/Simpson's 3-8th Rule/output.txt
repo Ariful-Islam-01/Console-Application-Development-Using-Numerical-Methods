@@ -1,0 +1,5 @@
+
+f(x) = sqrt(x);
+where, lower limit = 0 , upper limit = 4.5 , Number of intervals = 9
+
+The value of integral: 6.32902
