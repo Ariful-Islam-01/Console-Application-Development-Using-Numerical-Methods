@@ -50,5 +50,7 @@ int main() {
     fout<<"\nf(x) = sqrt(x);\n"<<"where, lower limit = "<<a<<" , upper limit = "<<b<<" , Number of intervals = "<<n<<endl;
     fout<<"\nThe value of integral: "<<simpson38(a, b, n)<<endl;
 
+    fin.close();
+    fout.close();
     return 0;
 }

@@ -52,5 +52,7 @@ int main() {
 
     fout<<"\nInterpolated value at x = "<<val<<" is "<<sum<<endl;
 
+    fin.close();
+    fout.close();
     return 0;
 }
