@@ -621,21 +621,160 @@ Interpolated value at x = 4 is 165
 ### Newton Backward Interpolation
 
 #### Newton Backward Interpolation Theory
-[Add your theory content here]
+Newton's Backward Interpolation is used to estimate the value of an unknown variable `x` which is greater than the middle value of the given data. This method is applicable when the difference between any two consecutive values of `x` is constant.
+
+Let the given data points be $x_0, x_1, \ldots , x_n$ with corresponding values $y_0, y_1, \ldots , y_n$.
+
+The data must satisfy the condition:
+
+$$
+x_i - x_{i-1} = h \quad \text{(constant)}, \quad 1 \le i \le n
+$$
+
+and the interpolation point should satisfy:
+
+$$
+x > \frac{x_0 + x_n}{2}
+$$
+
+The backward difference is defined as:
+
+$$
+\nabla y_i = y_i - y_{i-1}
+$$
+
+Higher order backward differences are:
+
+$$
+\nabla^2 y_i = \nabla(\nabla y_i)
+$$
+
+$$
+\nabla^3 y_i = \nabla(\nabla^2 y_i)
+$$
+
+and so on.
+
+Let
+
+$$
+u = \frac{x - x_n}{h}
+$$
+
+Then the Newton's Backward Interpolation formula is given by
+
+$$
+y(x) = y_n+ u \nabla y_n+ \frac{u(u+1)}{2!} \nabla^2 y_n+ \frac{u(u+1)(u+2)}{3!} \nabla^3 y_n+ \cdots
+$$
+
+**Input Characteristics:**
+
+The input starts with an integer $n$ - the number of variable $x$ and $y$.
+
+The second line contains $n$ integers $x_i$ for $1\le i \le n$.
+
+The third line contains $n$ integers $y_i$ for $1\le i \le n$.
+
+The final line contains the value of $x$ for which the interpolated value is to be determined.
+
+**Output Characteristics:**
+
+Firstly, the output shows the Backward Difference Table.
+
+Secondly, the interpolated value of $y$ is displayed.
 
 #### Newton Backward Interpolation Code
 ```cpp
-# Add your code here
+#include <bits/stdc++.h>
+using namespace std;
+
+long long fact(int n){
+    long long f = 1;
+    for(int i=2; i<=n; i++){
+        f *= i;
+    }
+    return f;
+}
+
+int main(){
+    ifstream fin("input.txt");
+    ofstream fout("output.txt");
+
+    if(!fin){
+        cout<<"Error: input.txt not found!"<<endl;
+        return 0;
+    }
+    if(!fout){
+        cout<<"Error: Can't open output.txt!"<<endl;
+        return 0;
+    }
+    
+    int n;
+    fin>>n;
+
+    double x[n], y[n][10];
+    for(int i=0; i<n; i++){
+        fin>>x[i];
+    }
+    for(int i=0; i<n; i++){
+        fin>>y[i][0];
+    }
+
+    for(int j=1; j<n; j++){
+        for(int i=n-1; i>=j; i--){
+            y[i][j] = y[i][j-1] - y[i-1][j-1];
+        }
+    }
+
+    fout<<"\nBackward Difference Table:\n";
+    for(int i=0; i<n; i++){
+        fout<<x[i]<<"\t";
+        for(int j=0; j<=i; j++){
+            fout<<y[i][j]<<"\t";
+        }
+        fout<<endl;
+    }
+
+    double val;
+    fin>>val;
+    
+    double h = x[1] - x[0];
+    double v = (val - x[n-1]) / h;
+
+    double sum = y[n-1][0];
+    double v_term = 1;
+    for(int i=1; i<n; i++){
+        v_term *= (v + (i-1));
+        sum += (v_term * y[n-1][i]) / fact(i);
+    }
+
+    fout<<"\nInterpolated value at x = "<<val<<" is "<<sum<<endl;
+
+    fin.close();
+    fout.close();
+    return 0;
+}
 ```
 
 #### Newton Backward Interpolation Input
 ```
-[Add your input format here]
+5
+24 28 32 36 40
+28.06 30.19 32.75 34.94 40
+33
 ```
 
 #### Newton Backward Interpolation Output
 ```
-[Add your output format here]
+
+Backward Difference Table:
+24	28.06	
+28	30.19	2.13	
+32	32.75	2.56	0.43	
+36	34.94	2.19	-0.37	-0.8	
+40	40	5.06	2.87	3.24	4.04	
+
+Interpolated value at x = 33 is 33.2747
 ```
 
 ---
