@@ -662,21 +662,158 @@ Interpolated value at x = 4 is 165
 ---
 
 ### Numerical Integration
-1. Simpson’s 1/3rd Rule  
-2. Simpson’s 3/8th Rule  
+ 
+### Simpson’s 1/3rd Rule Method
+
+#### Simpson’s 1/3rd Rule Theory
+[Add your theory content here]
+
+#### Simpson’s 1/3rd Rule Code
+```cpp
+# Add your code here
+```
+
+#### Simpson’s 1/3rd Rule Input
+```
+[Add your input format here]
+```
+
+#### Simpson’s 1/3rd Rule Output
+```
+[Add your output format here]
+```
+
+---
+### Simpson’s 3/8th Rule Method
+
+#### Simpson’s 3/8th Rule Theory
+[Add your theory content here]
+
+#### Simpson’s 3/8th Rule Code
+```cpp
+# Add your code here
+```
+
+#### Simpson’s 3/8th Rule Input
+```
+[Add your input format here]
+```
+
+#### Simpson’s 3/8th Rule Output
+```
+[Add your output format here]
+```
 
 ---
 
-### Numerical Differentiation
-1. Differentiation using Forward Interpolation  
-2. Differentiation using Backward Interpolation  
+### Numerical Differentiation 
+
+### Differentiation using Forward Interpolation
+
+#### Differentiation using Forward Interpolation Theory
+[Add your theory content here]
+
+#### Differentiation using Forward Interpolation Code
+```cpp
+# Add your code here
+```
+
+#### Differentiation using Forward Interpolation Input
+```
+[Add your input format here]
+```
+
+#### Differentiation using Forward Interpolation Output
+```
+[Add your output format here]
+```
+
+---
+### Differentiation using Backward Interpolation
+
+#### Differentiation using Backward Interpolation Theory
+[Add your theory content here]
+
+#### Differentiation using Backward Interpolation Code
+```cpp
+# Add your code here
+```
+
+#### Differentiation using Backward Interpolation Input
+```
+[Add your input format here]
+```
+
+#### Differentiation using Backward Interpolation Output
+```
+[Add your output format here]
+```
 
 ---
 
-### Curve Fitting Regression
-1. Least Squares Regression (Linear)  
-2. Least Squares Regression (Transcendental)  
-3. Least Squares Regression (Polynomial)  
+### Curve Fitting Regression 
+
+### Least Squares Regression (Linear) Method
+
+#### Least Squares Regression (Linear) Theory
+[Add your theory content here]
+
+#### Least Squares Regression (Linear) Code
+```cpp
+# Add your code here
+```
+
+#### Least Squares Regression (Linear) Input
+```
+[Add your input format here]
+```
+
+#### Least Squares Regression (Linear) Output
+```
+[Add your output format here]
+```
+
+---
+### Least Squares Regression (Transcendental) Method
+
+#### Least Squares Regression (Transcendental) Theory
+[Add your theory content here]
+
+#### Least Squares Regression (Transcendental) Code
+```cpp
+# Add your code here
+```
+
+#### Least Squares Regression (Transcendental) Input
+```
+[Add your input format here]
+```
+
+#### Least Squares Regression (Transcendental) Output
+```
+[Add your output format here]
+```
+
+---
+### Least Squares Regression (Polynomial) Method
+
+#### Least Squares Regression (Polynomial) Theory
+[Add your theory content here]
+
+#### Least Squares Regression (Polynomial) Code
+```cpp
+# Add your code here
+```
+
+#### Least Squares Regression (Polynomial) Input
+```
+[Add your input format here]
+```
+
+#### Least Squares Regression (Polynomial) Output
+```
+[Add your output format here]
+```
 
 ---
 
