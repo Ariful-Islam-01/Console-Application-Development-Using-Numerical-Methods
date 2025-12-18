@@ -1671,21 +1671,226 @@ The value of integral: 6.32902
 ### Differentiation using Forward Interpolation
 
 #### Differentiation using Forward Interpolation Theory
-[Add your theory content here]
+
+This C++ program calculates the **first and second derivatives** of a function at a given point using **Newton's Forward Interpolation Method**. It also generates the **forward difference table** and calculates **relative errors** compared to the exact derivatives.
+
+**Function Used**
+
+$$
+f(x) = x^3 + 2x^2 + x + 1
+$$
+
+Derivatives:
+
+$$
+f'(x) = 3x^2 + 4x + 1
+$$
+
+$$
+f''(x) = 6x + 4
+$$
+
+
+
+
+
+Newton's Forward Interpolation is used to estimate the value of an unknown variable `x` which is **less than the middle value** of the given data. This method is applicable when the difference between any two consecutive values of `x` is constant.
+
+Let the given data points be
+
+$$
+x_0, x_1, \ldots, x_n
+$$
+
+with corresponding values
+
+$$
+y_0, y_1, \ldots, y_n
+$$
+
+The data must satisfy the condition:
+
+$$
+x_i - x_{i-1} = h \quad \text{(constant)}, \quad 1 \le i \le n
+$$
+
+and the interpolation point should satisfy:
+
+$$
+x < \frac{x_0 + x_n}{2}
+$$
+
+The **forward difference** is defined as:
+
+$$
+\Delta y_i = y_{i+1} - y_i
+$$
+
+Higher order forward differences are:
+
+$$
+\Delta^2 y_i = \Delta(\Delta y_i)
+$$
+
+$$
+\Delta^3 y_i = \Delta(\Delta^2 y_i)
+$$
+
+and so on.
+
+Let
+
+$$
+u = \frac{x - x_0}{h}
+$$
+
+Then Newton's Forward Interpolation formula is given by:
+
+$$
+y(x) = y_0 + u \Delta y_0 + \frac{u(u-1)}{2!} \Delta^2 y_0 + \frac{u(u-1)(u-2)}{3!} \Delta^3 y_0 + \cdots
+$$
+
+**Derivatives using forward differences:**
+
+- First derivative:
+
+$$
+f'(p) = \frac{1}{h} \Big[\Delta y_0 + \frac{2u-1}{2}\Delta^2 y_0 + \frac{3u^2 - 6u + 2}{6}\Delta^3 y_0 + \dots \Big]
+$$
+
+- Second derivative:
+
+$$
+f''(p) = \frac{1}{h^2} \Big[\Delta^2 y_0 + (u-1)\Delta^3 y_0 + \dots \Big]
+$$
+
+**Input Characteristics**
+
+The input starts with an integer `n` — the number of variables `x` and `y`.
+
+The second line contains `n` integers $$x_i$$ for $$1 \le i \le n$$.
+
+The third line contains `n` integers $$y_i$$ for $$1 \le i \le n$$.
+
+The final line contains the value of `x` for which the interpolated value is to be determined.
+
+
+**Output Characteristics**
+
+1. Firstly, the output shows the **Forward Difference Table**.  
+2. Secondly, the **interpolated value of $$y$$** is displayed.
+
+
+
+
+
 
 #### Differentiation using Forward Interpolation Code
 ```cpp
-# Add your code here
+#include <bits/stdc++.h>
+using namespace std;
+
+double func(double x){
+    return x*x*x + 2*x*x + x + 1;
+}
+
+double dfunc(double x){
+    return 3*x*x + 4*x + 1;
+}
+
+double ddfunc(double x){
+    return 6*x + 4;
+}
+
+int main() {
+    ifstream fin("input.txt");
+    ofstream fout("output.txt");
+
+    if(!fin){
+        cout<<"Error: input.txt not found!"<<endl;
+        return 0;
+    }
+    if(!fout){
+        cout<<"Error: Can't open output.txt!"<<endl;
+        return 0;
+    }
+
+    fout<<fixed<<setprecision(3);
+    double upperLimit, lowerLimit, p;
+    int n;
+    fin>>upperLimit>>lowerLimit>>n>>p;
+
+    double h = (upperLimit - lowerLimit) / n;
+
+    double x[n], y[n][n];
+    for(int i=0; i<n; i++){
+        x[i] = lowerLimit + i*h;
+    }
+    for(int i=0; i<n; i++){
+        y[i][0] = func(x[i]);
+    }
+
+    for(int j=1; j<n; j++){
+        for(int i=0; i<n-j; i++){
+            y[i][j] = y[i+1][j-1] - y[i][j-1];
+        }
+    }
+
+    fout<<"\nThe difference table is : \n";
+    for(int i=0; i<n; i++){
+        fout<<x[i]<<"\t";
+        for(int j=0; j<n-i; j++){
+            fout<<y[i][j]<<"\t";
+        }
+        fout<<endl;
+    }
+
+    double d = x[1] - x[0];
+    double u = (p - x[0]) / d;
+
+    double y1 = ( y[0][1] + ((2*u - 1)/2)*y[0][2] + ((3*u*u - 6*u+ 2)/6)*y[0][3] + ((4*u*u*u - 18*u*u - 14*u - 6)/24)*y[0][4] ) / d;
+    fout<<"\nThe value of f'(p) is = "<<y1<<endl;
+
+    double y2 = ( y[0][2] + (u-1)*y[0][3] + ((12*u*u - 36*u - 14)/24)*y[0][4] ) / (d*d);
+    fout<<"\nThe value of f''(p) is = "<<y2<<endl;
+
+    double err1 = ( fabs(dfunc(p) - y1) / fabs(dfunc(p)) ) * 100;
+    double err2 = ( fabs(ddfunc(p) - y2) / fabs(ddfunc(p)) ) * 100;
+
+    fout<<"\nThe relative error of f'(p) = "<<err1<<"%\n";
+    fout<<"\nThe relative error of f''(p) = "<<err2<<"%\n";
+
+    fin.close();
+    fout.close();
+    return 0;
+}
+
 ```
 
 #### Differentiation using Forward Interpolation Input
 ```
-[Add your input format here]
+5 0 6 0.5
 ```
 
 #### Differentiation using Forward Interpolation Output
 ```
-[Add your output format here]
+
+The difference table is : 
+0.000	1.000	2.801	6.250	3.472	0.000	-0.000	
+0.833	3.801	9.051	9.722	3.472	-0.000	
+1.667	12.852	18.773	13.194	3.472	
+2.500	31.625	31.968	16.667	
+3.333	63.593	48.634	
+4.167	112.227	
+
+The value of f'(p) is = 3.750
+
+The value of f''(p) is = 7.000
+
+The relative error of f'(p) = 0.000%
+
+The relative error of f''(p) = 0.000%
+
 ```
 
 ---
@@ -1783,9 +1988,9 @@ $$
 f''(p) = \frac{1}{h^2} \Big[\nabla^2 y_n + (u+1)\nabla^3 y_n + \dots \Big]
 $$
 
----
 
-## Input Characteristics
+
+**Input Characteristics**
 
 The input starts with an integer `n` — the number of variables `x` and `y`.
 
@@ -1795,9 +2000,8 @@ The third line contains `n` integers $$y_i$$ for $$1 \le i \le n$$.
 
 The final line contains the value of `x` for which the interpolated value is to be determined.
 
----
 
-## Output Characteristics
+**Output Characteristics**
 
 1. Firstly, the output shows the **Backward Difference Table**.  
 2. Secondly, the **interpolated value of $$y$$** is displayed.
