@@ -336,15 +336,113 @@ The application allows users to select a numerical method from a menu, provide n
 ---
 
 ### Solution of Non-linear Equations
-1. Bisection Method  
-2. False Position (Regula-Falsi) Method  
-3. Secant Method  
-4. Newton-Raphson Method  
+
+### Bisection Method
+
+#### Bisection Theory
+[Add your theory content here]
+
+#### Bisection Code
+```cpp
+# Add your code here
+```
+
+#### Bisection Input
+```
+[Add your input format here]
+```
+
+#### Bisection Output
+```
+[Add your output format here]
+```
+
+---
+### False Position Method
+
+#### False Position Theory
+[Add your theory content here]
+
+#### False Position Code
+```cpp
+# Add your code here
+```
+
+#### False Position Input
+```
+[Add your input format here]
+```
+
+#### False Position Output
+```
+[Add your output format here]
+```
+
+---
+### Secant Method
+
+#### Secant Theory
+[Add your theory content here]
+
+#### Secant Code
+```cpp
+# Add your code here
+```
+
+#### Secant Input
+```
+[Add your input format here]
+```
+
+#### Secant Output
+```
+[Add your output format here]
+```
+
+---
+### Newton-Raphson Method
+
+#### Newton-Raphson Theory
+[Add your theory content here]
+
+#### Newton-Raphson Code
+```cpp
+# Add your code here
+```
+
+#### Newton-Raphson Input
+```
+[Add your input format here]
+```
+
+#### Newton-Raphson Output
+```
+[Add your output format here]
+```
 
 ---
 
 ### Solution of Differential Equations
-1. Runge-Kutta Method (Fourth Order)  
+
+### Runge-Kutta Method
+
+#### Runge-Kutta Theory
+[Add your theory content here]
+
+#### Runge-Kutta Code
+```cpp
+# Add your code here
+```
+
+#### Runge-Kutta Input
+```
+[Add your input format here]
+```
+
+#### Runge-Kutta Output
+```
+[Add your output format here]
+```  
 
 ---
 
