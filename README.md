@@ -461,7 +461,7 @@ $$
 x_i - x_{i-1} = h \quad \text{(constant)}, \quad 1 \le i \le n
 $$
 
-and the interpolation point should satisfy:
+and the interpolation point should satisfy: 
 
 $$
 x < \frac{x_0 + x_n}{2}
@@ -501,21 +501,121 @@ $$
 y(x) = y_0+ u \Delta y_0+ \frac{u(u-1)}{2!} \Delta^2 y_0+ \frac{u(u-1)(u-2)}{3!} \Delta^3 y_0+ \cdots
 $$
 
+**Input Characteristics:**
+
+The input starts with an integer $n$ - the number of variable $x$ and $y$.
+
+The second line contains $n$ integers $x_i$ for $1\le i \le n$.
+
+The third line contains $n$ integers $y_i$ for $1\le i \le n$.
+
+The final line contains the value of $x$ for which the interpolated value is to be determined.
+
+**Output Characteristics:**
+
+Firstly, the output shows the Forward Difference Table.
+
+Secondly, the interpolated value of $y$ is displayed.
 
 #### Newton Forward Interpolation Code
 ```cpp
-# Add your code here
+#include <bits/stdc++.h>
+using namespace std;
+
+long long fact(int n){
+    long long f = 1;
+    for(int i = 2; i <= n; i++){
+        f *= i;
+    }
+    return f;
+}
+
+int main(){
+    ifstream fin("input.txt");
+    ofstream fout("output.txt");
+
+    if(!fin){
+        cout<<"Error: input.txt not found!"<<endl;
+        return 0;
+    }
+    if(!fout){
+        cout<<"Error: Can't open output.txt!"<<endl;
+        return 0;
+    }
+
+    int n;
+    fin>>n;
+
+    double x[n], y[n][10];
+
+    for(int i = 0; i < n; i++){
+        fin>>x[i];
+    }
+
+    for(int i = 0; i < n; i++){
+        fin>>y[i][0];
+    }
+
+    for(int j = 1; j < n; j++){
+        for(int i = 0; i < n - j; i++){
+            y[i][j] = y[i + 1][j - 1] - y[i][j - 1];
+        }
+    }
+
+    fout<<"\nForward Difference Table:\n";
+    for(int i = 0; i < n; i++){
+        fout<<x[i]<<"\t";
+        for(int j = 0; j < n - i; j++){
+            fout<<y[i][j]<<"\t";
+        }
+        fout<<endl;
+    }
+
+    double value;
+    fin>>value;
+
+    double h = x[1] - x[0];
+    double u = (value - x[0]) / h;
+
+    double sum = y[0][0];
+    double u_term = 1;
+
+    for(int i = 1; i < n; i++){
+        u_term *= (u - (i - 1));
+        sum += (u_term * y[0][i]) / fact(i);
+    }
+
+    fout<<"\nInterpolated value at x = "<<value<<" is "<<sum<<endl;
+
+    fin.close();
+    fout.close();
+    return 0;
+}
 ```
 
 #### Newton Forward Interpolation Input
+
 ```
-[Add your input format here]
+4
+3 5 7 9
+180 150 120 90
+4
 ```
+
 
 #### Newton Forward Interpolation Output
 ```
-[Add your output format here]
+
+Forward Difference Table:
+3	180	-30	0	0	
+5	150	-30	0	
+7	120	-30	
+9	90	
+
+Interpolated value at x = 4 is 165
 ```
+
+
 
 ---
 ### Newton Backward Interpolation
