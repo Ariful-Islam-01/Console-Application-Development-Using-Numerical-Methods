@@ -670,21 +670,137 @@ Root 2 lies in interval [5, 6] = 5.741657
 ### Secant Method
 
 #### Secant Theory
-[Add your theory content here]
+The **Secant Method** is a numerical technique used to determine the root of a non-linear equation of the form `f(x) = 0`. Unlike the Bisection or False Position methods, the Secant Method does **not require the function to change sign** over an interval, and it uses two initial approximations that are close to the root.
+
+Let the initial guesses be  
+
+\( x_0 \) and \( x_1 \)
+
+The next approximation of the root is computed using the formula:
+
+$$
+x_{n+1} = x_n - f(x_n) \frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}
+$$
+
+Here, \( x_{n+1} \) is the intersection of the secant line passing through the points \( (x_{n-1}, f(x_{n-1})) \) and \( (x_n, f(x_n)) \) with the x-axis.
+
+The process is repeated iteratively, updating the two previous approximations as follows:
+
+$$
+x_{n-1} \gets x_n, \quad x_n \gets x_{n+1}
+$$
+
+until the difference between successive approximations becomes smaller than a prescribed tolerance:
+
+$$
+|x_{n+1} - x_n| < \varepsilon
+$$
+
+or the absolute value of the function at the current approximation satisfies:
+
+$$
+|f(x_{n+1})| < \varepsilon
+$$
+
+The Secant Method typically converges faster than the Bisection Method, although it **may fail to converge** if the initial guesses are not sufficiently close to the root. It is particularly useful when derivative information is not available, unlike the Newton-Raphson Method.
+
+---
+
+**Input Characteristics**
+
+1. The first line contains two real numbers:
+
+$$
+x_0 \;\ x_1
+$$
+
+representing the two initial guesses.
+
+2. The second line contains the **allowed error (tolerance)**:
+
+$$
+\varepsilon
+$$
+
+---
+
+**Output Characteristics**
+
+- The approximate root of the function is displayed.  
+- The number of iterations required to reach the tolerance can also be optionally shown.  
+
+---
+
 
 #### Secant Code
 ```cpp
-# Add your code here
+#include <bits/stdc++.h>
+using namespace std;
+
+double func(double x) {
+    return x*x - 4*x - 10;
+}
+
+double secantMethod(double x0, double x1, double eps) {
+    double x2;
+    while(true) {
+        if(fabs(func(x1) - func(x0)) < 1e-12) break;
+        x2 = x1 - func(x1)*(x1 - x0)/(func(x1) - func(x0));
+        if(fabs(x2 - x1) < eps) break;
+        x0 = x1;
+        x1 = x2;
+    }
+    return x2;
+}
+
+int main() {
+    ifstream fin("input.txt");
+    ofstream fout("output.txt");
+
+    double L, R, eps;
+    fin >> L >> R >> eps;
+
+    fout << "Given Function: f(x) = x^2 - 4x - 10\n";
+    fout << "Order (Degree) of the function: 2\n\n";
+    fout << "Search Interval: [" << L << ", " << R << "]\n";
+    fout << "Allowed Error (epsilon): " << eps << "\n\n";
+    fout << "Roots found:\n";
+
+    int root_no = 1;
+
+    for(double i = L; i < R; i++) {
+        if(func(i) * func(i + 1) < 0) {
+            double root = secantMethod(i, i + 1, eps);
+            fout << "Root " << root_no
+                 << " lies in interval [" << i << ", " << i + 1 << "] = "
+                 << fixed << setprecision(6) << root << "\n";
+            root_no++;
+        }
+    }
+
+    fin.close();
+    fout.close();
+    return 0;
+}
+
 ```
 
 #### Secant Input
 ```
-[Add your input format here]
+-10 10 0.0001
 ```
 
 #### Secant Output
 ```
-[Add your output format here]
+Given Function: f(x) = x^2 - 4x - 10
+Order (Degree) of the function: 2
+
+Search Interval: [-10, 10]
+Allowed Error (epsilon): 0.0001
+
+Roots found:
+Root 1 lies in interval [-2, -1] = -1.741657
+Root 2 lies in interval [5.000000, 6.000000] = 5.741657
 ```
 
 ---
