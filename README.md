@@ -952,21 +952,151 @@ Root 2 lies in interval [5.000000, 6.000000] = 5.741657
 ### Runge-Kutta Method
 
 #### Runge-Kutta Theory
-[Add your theory content here]
+
+The **Runge-Kutta 4th Order Method (RK4)** is a numerical technique used to solve **ordinary differential equations (ODEs)** of the form:
+
+$$
+\frac{dy}{dx} = f(x, y), \quad y(x_0) = y_0
+$$
+
+It provides a highly accurate approximation of \(y\) at successive points by combining **weighted slopes**.
+
+---
+
+### Step Calculation
+
+For each step of size \(h\), the RK4 method calculates:
+
+$$
+k_1 = h \cdot f(x_n, y_n)
+$$
+
+$$
+k_2 = h \cdot f\left(x_n + \frac{h}{2}, y_n + \frac{k_1}{2}\right)
+$$
+
+$$
+k_3 = h \cdot f\left(x_n + \frac{h}{2}, y_n + \frac{k_2}{2}\right)
+$$
+
+$$
+k_4 = h \cdot f(x_n + h, y_n + k_3)
+$$
+
+The next value \(y_{n+1}\) is then computed as:
+
+$$
+y_{n+1} = y_n + \frac{k_1 + 2k_2 + 2k_3 + k_4}{6}
+$$
+
+and the next \(x\) value is:
+
+$$
+x_{n+1} = x_n + h
+$$
+
+---
 
 #### Runge-Kutta Code
 ```cpp
-# Add your code here
+#include <bits/stdc++.h>
+using namespace std;
+
+double f(double x, double y){
+    return x*y + y*y;
+}
+
+int main() {
+    ifstream fin("input.txt");
+    ofstream fout("output.txt");
+
+    if(!fin){
+        cout << "Error: input.txt not found!" << endl;
+        return 0;
+    }
+    if(!fout){
+        cout << "Error: Can't open output.txt!" << endl;
+        return 0;
+    }
+
+    double x0, y0, xf, h;
+    fin >> x0 >> y0 >> xf >> h;
+
+    double x = x0, y = y0;
+    int ct = 1;
+
+    while(x < xf ){
+        fout << "Step " << ct << ":\n";
+
+        double k1 = h*f(x, y);
+        double k2 = h*f(x + h/2, y + k1/2);
+        double k3 = h*f(x + h/2, y + k2/2);
+        double k4 = h*f(x + h, y + k3);
+        double k = (k1 + 2*k2 + 2*k3 + k4)/6;
+
+        fout << fixed << setprecision(6);
+        fout << "k1 = " << k1 << "\n";
+        fout << "k2 = " << k2 << "\n";
+        fout << "k3 = " << k3 << "\n";
+        fout << "k4 = " << k4 << "\n";
+
+        y = y + k;
+        x = x + h;
+
+        fout << "At x = " << x << " : y = " << y << "\n\n";
+        ct++;
+    }
+
+    fin.close();
+    fout.close();
+    return 0;
+}
+
 ```
 
 #### Runge-Kutta Input
 ```
-[Add your input format here]
+0 1 1 0.2
 ```
 
 #### Runge-Kutta Output
 ```
-[Add your output format here]
+Step 1:
+k1 = 0.200000
+k2 = 0.264000
+k3 = 0.278925
+k4 = 0.378287
+At x = 0.200000 : y = 1.277356
+
+Step 2:
+k1 = 0.377422
+k2 = 0.517835
+k3 = 0.564204
+k4 = 0.825593
+At x = 0.400000 : y = 1.838538
+
+Step 3:
+k1 = 0.823127
+k2 = 1.237602
+k3 = 1.453437
+k4 = 2.562456
+At x = 0.600000 : y = 3.299815
+
+Step 4:
+k1 = 2.573733
+k2 = 4.849664
+k3 = 7.355766
+k4 = 24.413173
+At x = 0.800000 : y = 11.866109
+
+Step 5:
+k1 = 30.059486
+k2 = 149.518623
+k3 = 1516.385273
+k4 = 467416.107809
+At x = 1.000000 : y = 78474.861957
+
+
 ```  
 
 ---
