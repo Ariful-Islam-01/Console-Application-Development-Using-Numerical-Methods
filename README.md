@@ -255,7 +255,7 @@ The application allows users to select a numerical method from a menu, provide n
 [Add your theory content here]
 
 #### Gauss Elimination Code
-```python
+```cpp
 # Add your code here
 ```
 
@@ -276,7 +276,7 @@ The application allows users to select a numerical method from a menu, provide n
 [Add your theory content here]
 
 #### Gauss Jordan Code
-```python
+```cpp
 # Add your code here
 ```
 
@@ -298,7 +298,7 @@ The application allows users to select a numerical method from a menu, provide n
 [Add your theory content here]
 
 #### LU Decomposition Code
-```python
+```cpp
 # Add your code here
 ```
 
@@ -319,7 +319,7 @@ The application allows users to select a numerical method from a menu, provide n
 [Add your theory content here]
 
 #### Matrix Inversion Code
-```python
+```cpp
 # Add your code here
 ```
 
@@ -348,10 +348,69 @@ The application allows users to select a numerical method from a menu, provide n
 
 ---
 
-### Interpolation and Approximation
-1. Newton Forward Interpolation  
-2. Newton Backward Interpolation  
-3. Newton Divided Difference Interpolation  
+### Interpolation and Approximation  
+
+### Newton Forward Interpolation
+
+#### Newton Forward Interpolation Theory
+[Add your theory content here]
+
+#### Newton Forward Interpolation Code
+```cpp
+# Add your code here
+```
+
+#### Newton Forward Interpolation Input
+```
+[Add your input format here]
+```
+
+#### Newton Forward Interpolation Output
+```
+[Add your output format here]
+```
+
+---
+### Newton Backward Interpolation
+
+#### Newton Backward Interpolation Theory
+[Add your theory content here]
+
+#### Newton Backward Interpolation Code
+```cpp
+# Add your code here
+```
+
+#### Newton Backward Interpolation Input
+```
+[Add your input format here]
+```
+
+#### Newton Backward Interpolation Output
+```
+[Add your output format here]
+```
+
+---
+### Newton Divided Difference Interpolation
+
+#### Newton Divided Difference Interpolation Theory
+[Add your theory content here]
+
+#### Newton Divided Difference Interpolation Code
+```cpp
+# Add your code here
+```
+
+#### Newton Divided Difference Interpolation Input
+```
+[Add your input format here]
+```
+
+#### Newton Divided Difference Interpolation Output
+```
+[Add your output format here]
+```
 
 ---
 
