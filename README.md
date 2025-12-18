@@ -451,7 +451,56 @@ The application allows users to select a numerical method from a menu, provide n
 ### Newton Forward Interpolation
 
 #### Newton Forward Interpolation Theory
-[Add your theory content here]
+Newton's Forward Interpolation is used to estimate the value of an unknown variable `x` which is less than the middle value of the given data. This method is applicable when the difference between any two consecutive values of `x` is constant.
+
+Let the given data points be  $x_0, x_1, \ldots , x_n$  with corresponding values  $y_0, y_1, \ldots , y_n$.
+
+The data must satisfy the condition:
+
+$$
+x_i - x_{i-1} = h \quad \text{(constant)}, \quad 1 \le i \le n
+$$
+
+and the interpolation point should satisfy:
+
+$$
+x < \frac{x_0 + x_n}{2}
+$$
+
+
+
+The forward difference is defined as:
+
+$$
+\Delta y_i = y_{i+1} - y_i
+$$
+
+Higher order forward differences are:
+
+$$
+\Delta^2 y_i = \Delta(\Delta y_i)
+$$
+
+$$
+\Delta^3 y_i = \Delta(\Delta^2 y_i)
+$$
+
+and so on.
+
+
+
+Let
+
+$$
+u = \frac{x - x_0}{h}
+$$
+
+Then the Newton's Forward Interpolation formula is given by
+
+$$
+y(x) = y_0+ u \Delta y_0+ \frac{u(u-1)}{2!} \Delta^2 y_0+ \frac{u(u-1)(u-2)}{3!} \Delta^3 y_0+ \cdots
+$$
+
 
 #### Newton Forward Interpolation Code
 ```cpp
