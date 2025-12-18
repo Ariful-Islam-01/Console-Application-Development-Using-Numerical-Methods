@@ -1865,7 +1865,6 @@ int main() {
         }
         fout<<endl;
     }
-
     double d = x[1] - x[0];
     double v = (p - x[n-1]) / d;
 
