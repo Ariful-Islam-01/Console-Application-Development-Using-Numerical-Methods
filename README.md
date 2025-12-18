@@ -1057,21 +1057,112 @@ Interpolated value at x = 2 is 0.628762
 ### Simpson’s 1/3rd Rule Method
 
 #### Simpson’s 1/3rd Rule Theory
-[Add your theory content here]
+Simpson’s 1/3rd Rule is a numerical integration method used to approximate the definite integral of a function when the integrand is known at equally spaced points. This method provides better accuracy than the Trapezoidal Rule for smooth functions.
+
+Let the interval of integration be $[a, b]$ and divide it into an even number of subintervals $n$, where the width of each subinterval is given by:
+
+$$
+h = \frac{b - a}{n}, \quad \text{where } n \text{ is even}
+$$
+
+Let the ordinates of the function be:
+
+$$
+y_0 = f(a),\; y_1 = f(a+h),\; y_2 = f(a+2h),\; \ldots ,\; y_n = f(b)
+$$
+
+Then the Simpson’s 1/3rd Rule formula is given by
+
+$$
+\int_a^b f(x)dx \approx \frac{h}{3}\left[y_0 + y_n+ 4(y_1 + y_3 + \cdots + y_{n-1})+ 2(y_2 + y_4 + \cdots + y_{n-2})\right]
+$$
+
+This method is applicable when the function is continuous and smooth over the interval of integration and the number of subintervals is even.
+
+**Input Characteristics:**
+
+Input is taken by a single line containing 3 integers : $a,b,n$ - lower limit, upper limit & number of intervals.
+
+**Output Characteristics:**
+
+In the output, the function is shown.
+
+Then the upper limit, lower limit & number of intervals are shown.
+
+At last, the integral value is shown.
 
 #### Simpson’s 1/3rd Rule Code
 ```cpp
-# Add your code here
+#include <bits/stdc++.h>
+using namespace std;
+
+double func(double x){
+    return 1/(1+x*x);
+}
+
+double simpson13(double a, double b, int n){
+    double h = (b-a) / n;
+    double x[n+1], y[n+1];
+
+    for(int i=0; i<n+1; i++){
+        x[i] = a + i*h;
+        y[i] = func(x[i]);
+    }
+
+    double ans = 0;
+    for(int i=0; i<n+1; i++){
+        if(i==0 || i==n){
+            ans += y[i];
+        }
+        else if(i%2){
+            ans += 4*y[i];
+        }
+        else{
+            ans += 2*y[i];
+        }
+    }
+    ans = ans*(h/3);
+    return ans;
+}
+
+int main() {
+    ifstream fin("input.txt");
+    ofstream fout("output.txt");
+
+    if(!fin){
+        cout<<"Error: input.txt not found!"<<endl;
+        return 0;
+    }
+    if(!fout){
+        cout<<"Error: Can't open output.txt!"<<endl;
+        return 0;
+    }
+
+    double a, b;
+    int n;
+    fin>>a>>b>>n;
+
+    fout<<"\nf(x) = 1 / (1 + x * x)\n"<<"where, lower limit = "<<a<<" , upper limit = "<<b<<" , Number of intervals = "<<n<<endl;
+    fout<<"\nThe value of integral: "<<simpson13(a, b, n)<<endl;
+
+    fin.close();
+    fout.close();
+    return 0;
+}
 ```
 
 #### Simpson’s 1/3rd Rule Input
 ```
-[Add your input format here]
+0 1 4
 ```
 
 #### Simpson’s 1/3rd Rule Output
 ```
-[Add your output format here]
+
+f(x) = 1 / (1 + x * x)
+where, lower limit = 0 , upper limit = 1 , Number of intervals = 4
+
+The value of integral: 0.785392
 ```
 
 ---
