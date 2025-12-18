@@ -340,21 +340,159 @@ The application allows users to select a numerical method from a menu, provide n
 ### Bisection Method
 
 #### Bisection Theory
-[Add your theory content here]
+The Bisection Method is a numerical technique used to determine the root of a
+non-linear equation of the form `f(x) = 0`. This method is applicable when the
+function is continuous in a given interval and the values of the function at
+the endpoints have opposite signs.
+
+Let the initial guesses be  
+\( a \) and \( b \), such that
+
+$$
+f(a)\cdot f(b) < 0
+$$
+
+This condition ensures that at least one real root exists in the interval
+\( [a, b] \), according to the Intermediate Value Theorem.
+
+The midpoint of the interval is computed as:
+
+$$
+c = \frac{a + b}{2}
+$$
+
+The function value at the midpoint is then evaluated.
+
+If
+
+$$
+f(c) = 0
+$$
+
+then \( c \) is the exact root of the equation.
+
+If
+
+$$
+f(a)\cdot f(c) < 0
+$$
+
+the root lies in the interval \( [a, c] \).
+
+If
+
+$$
+f(c)\cdot f(b) < 0
+$$
+
+the root lies in the interval \( [c, b] \).
+
+The interval containing the root is repeatedly reduced by replacing either
+\( a \) or \( b \) with \( c \). This process is continued until the length of
+the interval becomes sufficiently small.
+
+The stopping criterion is generally given by:
+
+$$
+|b - a| < \varepsilon
+$$
+
+where $$\( \varepsilon \)$$ is the prescribed tolerance.
+
+The Bisection Method is simple, reliable, and always convergent, although its
+rate of convergence is relatively slow compared to other numerical methods.
+
+
+**Input Characteristics** 
+- The first line contains two real numbers:  
+     ```
+     L R
+     ```  
+   - Constraint on the interval:  
+     
+     -50 < L < R < 50
+       
+   - The function $f(x)$ **must change sign** in the interval $[L, R]$, i.e., $f(L) \cdot f(R) < 0$.
+
+
+**Output Characteristics** 
+- All real roots of the function lying within the interval  
+  [L, R]
+  are displayed.
+
+- For each root, the corresponding **sub-interval** and the **approximate root value** are shown.
+
 
 #### Bisection Code
 ```cpp
-# Add your code here
+#include <bits/stdc++.h>
+using namespace std;
+
+double func(double x){
+    return x*x - 4*x - 10;
+}
+
+double bisection(double a, double b, double eps){
+    double mid;
+    while(fabs(b - a) >= eps){
+        mid = (a + b) / 2.0;
+        if(func(a) * func(mid) < 0)
+            b = mid;
+        else
+            a = mid;
+    }
+    return (a + b) / 2.0;
+}
+
+int main(){
+    ifstream fin("input.txt");
+    ofstream fout("output.txt");
+
+    double L, R, eps;
+    fin >> L >> R >> eps;
+
+    fout << "Given Function: f(x) = x^2 - 4x - 10\n";
+    fout << "Order (Degree) of the function: 2\n\n";
+    fout << "Search Interval: [" << L << ", " << R << "]\n";
+    fout << "Allowed Error (epsilon): " << eps << "\n\n";
+    fout << "Roots found:\n";
+
+    int root_no = 1;
+
+    for(double i = L; i < R; i++){
+        if(func(i) * func(i + 1) < 0){
+            double root = bisection(i, i + 1, eps);
+            fout << "Root " << root_no
+                 << " lies in interval [" << i << ", " << i + 1 << "] = "
+                 << fixed << setprecision(6) << root << "\n";
+            root_no++;
+        }
+    }
+
+    fin.close();
+    fout.close();
+    return 0;
+}
+
 ```
 
 #### Bisection Input
 ```
-[Add your input format here]
+-10 10
+0.0001
 ```
 
 #### Bisection Output
 ```
-[Add your output format here]
+Given Function: f(x) = x^2 - 4x - 10
+Order (Degree) of the function: 2
+
+Search Interval: [-10, 10]
+Allowed Error (epsilon): 0.0001
+
+Roots found:
+Root 1 lies in interval [-2, -1] = -1.741657
+Root 2 lies in interval [5, 6] = 5.741657
 ```
 
 ---
