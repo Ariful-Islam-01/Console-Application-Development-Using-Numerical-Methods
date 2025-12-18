@@ -807,21 +807,142 @@ Root 2 lies in interval [5.000000, 6.000000] = 5.741657
 ### Newton-Raphson Method
 
 #### Newton-Raphson Theory
-[Add your theory content here]
+
+The **Newton-Raphson Method** is a numerical technique used to determine the root of a non-linear equation of the form `f(x) = 0`. Unlike the Secant or False Position methods, the Newton-Raphson Method **requires the derivative** of the function to compute successive approximations. It uses a single initial guess that is close to the root.
+
+Let the initial guess be  
+
+\[
+x_0
+\]
+
+The next approximation of the root is computed using the formula:
+
+$$
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+$$
+
+Here, \( x_{n+1} \) is obtained by finding the x-intercept of the tangent line to the curve \( y = f(x) \) at the point \( (x_n, f(x_n)) \).
+
+The process is repeated iteratively, updating the approximation as follows:
+
+$$
+x_n \gets x_{n+1}
+$$
+
+until the difference between successive approximations becomes smaller than a prescribed tolerance:
+
+$$
+|x_{n+1} - x_n| < \varepsilon
+$$
+
+or the absolute value of the function at the current approximation satisfies:
+
+$$
+|f(x_{n+1})| < \varepsilon
+$$
+
+The Newton-Raphson Method typically converges faster than the Bisection or Secant Methods, especially when the initial guess is sufficiently close to the root. However, it **may fail to converge** if the derivative is zero or the initial guess is far from the actual root.
+
+---
+
+## Input Characteristics
+
+1. The first line contains the **initial guess**:
+
+$$
+x_0
+$$
+
+2. The second line contains the **allowed error (tolerance)**:
+
+$$
+\varepsilon
+$$
+
+---
+
+## Output Characteristics
+
+- The approximate root of the function is displayed.  
+- The number of iterations required to reach the tolerance can also be optionally shown.
+
+---
 
 #### Newton-Raphson Code
 ```cpp
-# Add your code here
+#include <bits/stdc++.h>
+using namespace std;
+
+double func(double x) {
+    return x*x - 4*x - 10;
+}
+
+double dfunc(double x) {
+    return 2*x - 4;
+}
+
+double newtonRaphson(double x0, double eps) {
+    double x1;
+    while (true) {
+        if (fabs(dfunc(x0)) < 1e-12) break;
+        x1 = x0 - func(x0)/dfunc(x0);
+        if (fabs(x1 - x0) < eps) break;
+        x0 = x1;
+    }
+    return x1;
+}
+
+int main() {
+    ifstream fin("input.txt");
+    ofstream fout("output.txt");
+
+    double L, R, eps;
+    fin >> L >> R >> eps;
+
+    fout << "Given Function: f(x) = x^2 - 4x - 10\n";
+    fout << "Order (Degree) of the function: 2\n\n";
+    fout << "Search Interval: [" << L << ", " << R << "]\n";
+    fout << "Allowed Error (epsilon): " << eps << "\n\n";
+    fout << "Roots found:\n";
+
+    int root_no = 1;
+
+    for(double i = L; i < R; i++) {
+        if(func(i) * func(i + 1) < 0) {
+            double root = newtonRaphson(i, eps);
+            fout << "Root " << root_no
+                 << " lies in interval [" << i << ", " << i + 1 << "] = "
+                 << fixed << setprecision(6) << root << "\n";
+            root_no++;
+        }
+    }
+
+    fin.close();
+    fout.close();
+    return 0;
+}
+
 ```
 
 #### Newton-Raphson Input
 ```
-[Add your input format here]
+-10 10 0.0001
+
 ```
 
 #### Newton-Raphson Output
 ```
-[Add your output format here]
+Given Function: f(x) = x^2 - 4x - 10
+Order (Degree) of the function: 2
+
+Search Interval: [-10, 10]
+Allowed Error (epsilon): 0.0001
+
+Roots found:
+Root 1 lies in interval [-2, -1] = -1.741657
+Root 2 lies in interval [5.000000, 6.000000] = 5.741657
+
 ```
 
 ---
