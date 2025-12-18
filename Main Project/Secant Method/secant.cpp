@@ -5,9 +5,9 @@ double fun(double x){
     return 3*x - cos(x) - 1;
 }
 
-void secant() {
-    ifstream fin("Secant Method/input.txt");
-    ofstream fout("Secant Method/output.txt");
+int main() {
+    ifstream fin("input.txt");
+    ofstream fout("output.txt");
 
     if(!fin){
         cout << "Error: input.txt not found!" << endl;
@@ -49,5 +49,6 @@ void secant() {
 
     fin.close();
     fout.close();
+    return 0;
 }
 
