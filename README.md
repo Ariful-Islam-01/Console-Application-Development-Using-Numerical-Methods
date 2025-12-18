@@ -781,21 +781,135 @@ Interpolated value at x = 33 is 33.2747
 ### Newton Divided Difference Interpolation
 
 #### Newton Divided Difference Interpolation Theory
-[Add your theory content here]
+Newton's Divided Difference Interpolation is used to estimate the value of an unknown variable `x` when the data points are not equally spaced. This method constructs an interpolating polynomial that passes through all given data points.
+
+Let the given data points be $x_0, x_1, x_2, \ldots , x_n$ with corresponding values $y_0, y_1, y_2, \ldots , y_n$, where the values of `x` are not necessarily equally spaced.
+
+The first divided difference is defined as:
+
+$$
+f[x_i, x_{i+1}] = \frac{y_{i+1} - y_i}{x_{i+1} - x_i}
+$$
+
+The second divided difference is defined as:
+
+$$
+f[x_i, x_{i+1}, x_{i+2}] =
+\frac{f[x_{i+1}, x_{i+2}] - f[x_i, x_{i+1}]}{x_{i+2} - x_i}
+$$
+
+Higher order divided differences are defined recursively as:
+
+$$
+f[x_i, x_{i+1}, \ldots , x_{i+k}] =
+\frac{f[x_{i+1}, \ldots , x_{i+k}] - f[x_i, \ldots , x_{i+k-1}]}{x_{i+k} - x_i}
+$$
+
+The Newton's Divided Difference Interpolation formula is given by
+
+$$
+\begin{aligned}
+y(x) = & y_0+ (x - x_0) f[x_0, x_1]+ (x - x_0)(x - x_1) f[x_0, x_1, x_2] \\& + (x - x_0)(x - x_1)(x - x_2) f[x_0, x_1, x_2, x_3]+ \cdots\end{aligned}
+$$
+
+This method is suitable for interpolation when the data points are unequally spaced and provides a flexible way to construct the interpolating polynomial.
+
+**Input Characteristics:**
+
+The input starts with an integer $n$ - the number of variable $x$ and $y$.
+
+The second line contains $n$ integers $x_i$ for $1\le i \le n$.
+
+The third line contains $n$ integers $y_i$ for $1\le i \le n$.
+
+The final line contains the value of $x$ for which the interpolated value is to be determined.
+
+**Output Characteristics:**
+
+Firstly, the output shows the Divided Difference Table.
+
+Secondly, the interpolated value of $y$ is displayed.
 
 #### Newton Divided Difference Interpolation Code
 ```cpp
-# Add your code here
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ifstream fin("input.txt");
+    ofstream fout("output.txt");
+
+    if(!fin){
+        cout<<"Error: input.txt not found!"<<endl;
+        return 0;
+    }
+    if(!fout){
+        cout<<"Error: Can't open output.txt!"<<endl;
+        return 0;
+    }
+    
+    int n;
+    fin>>n;
+    double x[n], y[n][n];
+
+    for(int i=0; i<n; i++){
+        fin>>x[i];
+    }
+    for(int i=0; i<n; i++){
+        fin>>y[i][0];
+    }
+
+    for(int j=1; j<n; j++){
+        for(int i=0; i<n-j; i++){
+            y[i][j] = ( y[i+1][j-1] - y[i][j-1] ) / ( x[i+j] - x[i] );
+        }
+    }
+    fout<<"\nDivided Difference Table:\n";
+    for(int i=0; i<n; i++){
+        fout<<x[i]<<"\t";
+        for(int j=0; j<n-i; j++){
+            fout<<y[i][j]<<"\t";
+        }
+        fout<<endl;
+    }
+
+    double val;
+    fin>>val;
+
+    double sum = y[0][0];
+    double term = 1;
+
+    for(int i=1; i<n; i++){
+        term *= (val - x[i-1]);
+        sum += term*y[0][i];
+    }
+
+    fout<<"\nInterpolated value at x = "<<val<<" is "<<sum<<endl;
+
+    fin.close();
+    fout.close();
+    return 0;
+}
 ```
 
 #### Newton Divided Difference Interpolation Input
 ```
-[Add your input format here]
+4
+1 4 6 5
+0 1.386294 1.79175 1.609438
+2
 ```
 
 #### Newton Divided Difference Interpolation Output
 ```
-[Add your output format here]
+
+Divided Difference Table:
+1	0	0.462098	-0.051874	0.0078645	
+4	1.38629	0.202728	-0.020416	
+6	1.79175	0.182312	
+5	1.60944	
+
+Interpolated value at x = 2 is 0.628762
 ```
 
 ---
