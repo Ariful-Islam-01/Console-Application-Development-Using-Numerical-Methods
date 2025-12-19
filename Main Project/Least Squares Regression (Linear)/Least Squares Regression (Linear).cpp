@@ -26,27 +26,26 @@ int main()
         fin>>y[i];
     }
 
-    double lnxi = 0;
-    double lnyi = 0;
-    double lnxi_lnxi = 0;
-    double lnxi_lnyi = 0;
+    double xi = 0;
+    double yi = 0;
+    double xi_xi = 0;
+    double xi_yi = 0;
     
     for(int i=0; i<n; i++)
     {
-        lnxi += log(x[i]);
-        lnyi += log(y[i]);
-        lnxi_lnxi += log(x[i])*log(x[i]);
-        lnxi_lnyi += log(x[i])*log(y[i]);
+        xi += x[i];
+        yi += y[i];
+        xi_xi += x[i]*x[i];
+        xi_yi += x[i]*y[i];
     }
 
-    double b = ( (n*lnxi_lnyi) - lnxi*lnyi ) / (n*lnxi_lnxi - lnxi*lnxi );
-    double lna = ( lnyi - b*lnxi ) / n;
-    double a = exp(lna);
-    double ans = a * pow(6, b);
+    double b = ( (n*xi_yi) - xi*yi ) / (n*xi_xi - xi*xi );
+    double a = ( yi - b*xi ) / n;
+    double ans = a + b*6;
     
-    fout<<"\nTrascendental Equation is y = ax^b"<<endl;
+    fout<<"\nLinear Equation is y = a + bx"<<endl;
     fout<<"\nfor x = 6, y is "<<ans<<endl;
-    fout<<"\nRegression Line is: "<<fixed<<setprecision(2)<<"y = "<<a<<"x^("<<b<<")"<<endl;
+    fout<<"\nRegression Line is: "<<fixed<<setprecision(2)<<"y = "<<a<<" + "<<b<<"x"<<endl;
 
     fin.close();
     fout.close();

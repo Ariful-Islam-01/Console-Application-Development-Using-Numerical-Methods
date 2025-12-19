@@ -1,0 +1,6 @@
+
+Linear Equation is y = a + bx
+
+for x = 6, y is 6.7
+
+Regression Line is: y = 1.30 + 0.90x
