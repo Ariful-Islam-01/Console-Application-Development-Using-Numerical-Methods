@@ -651,21 +651,342 @@ x3 = -1.000000
 ### LU Decomposition Method
 
 #### LU Decomposition Theory
-[Add your theory content here]
+# LU Factorization Method
+
+LU Factorization (or LU Decomposition) is a numerical technique used to solve a system of linear equations.  
+It decomposes a square matrix $$A$$ into the product of a **Lower triangular matrix** $$L$$ and an **Upper triangular matrix** $$U$$, such that:
+
+$$
+A = L \cdot U
+$$
+
+Once the decomposition is done, the system:
+
+$$
+A \cdot X = B
+$$
+
+can be solved in two steps:
+
+1. Solve $$L \cdot Y = B$$ using **forward substitution**.
+2. Solve $$U \cdot X = Y$$ using **back substitution**.
+
+
+
+**Mathematical Representation**
+
+For a system of `n` equations:
+
+$$
+\begin{aligned}
+a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n &= b_1 \\
+a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n &= b_2 \\
+\vdots \\
+a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n &= b_n
+\end{aligned}
+$$
+
+The matrix $$A$$ can be decomposed as:
+
+$$
+A = 
+\left[ 
+\begin{array}{cccc} 
+a_{11} & a_{12} & \cdots & a_{1n} \\ 
+a_{21} & a_{22} & \cdots & a_{2n} \\ 
+\vdots & \vdots & \ddots & \vdots \\ 
+a_{n1} & a_{n2} & \cdots & a_{nn} 
+\end{array} 
+\right]
+= L \cdot U
+$$
+
+
+Where:
+
+- $$L$$ is a lower triangular matrix with ones on the diagonal.
+- $$U$$ is an upper triangular matrix.
+
+
+
+**LU Factorization Procedure**
+
+1. Decompose matrix $$A$$ into $$L$$ and $$U$$.
+2. Solve $$L \cdot Y = B$$ for $$Y$$ using **forward substitution**:
+
+$$
+y_1 = b_1,\quad
+y_2 = b_2 - L_{21}y_1,\quad \dots,\quad
+y_n = b_n - \sum_{j=1}^{n-1} L_{nj} y_j
+$$
+
+3. Solve $$U \cdot X = Y$$ for $$X$$ using **back substitution**:
+
+$$
+x_n = \frac{y_n}{U_{nn}},\quad
+x_{n-1} = \frac{y_{n-1} - U_{n-1,n} x_n}{U_{n-1,n-1}},\quad \dots
+$$
+
+4. Check for **infinite solutions** or **no solution** if any row in $$U$$ is all zeros.
+
+
+
+**Input Characteristics**
+
+- The first line contains an integer \(t\), the number of test cases.
+- For each test case:
+  - The first line contains an integer \(n\), the number of equations.
+  - The next \(n\) lines contain \(n\) real numbers followed by the RHS value (augmented matrix).
+
+The input can be represented as:
+
+$$
+\begin{aligned}
+t \\
+n_1 \\
+a_{11} & a_{12} & \cdots & a_{1n} & b_1 \\
+a_{21} & a_{22} & \cdots & a_{2n} & b_2 \\
+\vdots & \vdots & \ddots & \vdots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} & b_n \\
+n_2 \\
+a_{11} & a_{12} & \cdots & a_{1n} & b_1 \\
+\vdots & & & & \\
+\end{aligned}
+$$
+
+## Output Characteristics
+
+- **L matrix** (lower triangular with 1s on diagonal)  
+- **U matrix** (upper triangular)  
+- **Y vector** (solution of $$L \cdot Y = B$$)  
+- **X vector** (solution of $$U \cdot X = Y$$)  
+
+**If no solution or infinite solutions exist**, the program will display:
+
+$$
+\text{No Solution} \quad \text{or} \quad \text{Infinite Solutions}
+$$
+
+Otherwise, the unique solution is displayed as:
+
+$$
+x_1 = value,\quad x_2 = value,\quad \ldots,\quad x_n = value
+$$
+
 
 #### LU Decomposition Code
 ```cpp
-# Add your code here
+#include <bits/stdc++.h>
+using namespace std;
+
+void LUX(vector<vector<double>>& a, int n, vector<double>& b, ofstream &fout, int tc) {
+    vector<vector<double>> u(n, vector<double>(n));
+    vector<vector<double>> l(n, vector<double>(n, 0));
+
+    fout << "==== Test Case " << tc << " ====\n\n";
+    fout << "Original Matrix A:\n";
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++)
+            fout << a[i][j] << " ";
+        fout << endl;
+    }
+    fout << endl;
+
+    for(int i = 0; i < n; i++) {
+        for(int k = i; k < n; k++) {
+            double sum = 0;
+            for(int j = 0; j < i; j++)
+                sum += l[i][j] * u[j][k];
+            u[i][k] = a[i][k] - sum;
+        }
+        for(int k = i; k < n; k++) {
+            if(i == k) l[k][i] = 1;
+            double sum = 0;
+            for(int j = 0; j < i; j++)
+                sum += l[k][j] * u[j][i];
+            if(u[i][i] != 0)
+                l[k][i] = (a[k][i] - sum) / u[i][i];
+        }
+    }
+
+    fout << "U matrix:\n";
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++)
+            fout << u[i][j] << " ";
+        fout << endl;
+    }
+    fout << endl;
+
+    fout << "L matrix:\n";
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++)
+            fout << l[i][j] << " ";
+        fout << endl;
+    }
+    fout << endl;
+
+    vector<double> y(n);
+    for(int i = 0; i < n; i++) {
+        double sum = 0;
+        for(int j = 0; j < i; j++)
+            sum += l[i][j] * y[j];
+        y[i] = b[i] - sum;
+    }
+
+    fout << "Y vector:\n";
+    for(int i = 0; i < n; i++)
+        fout << y[i] << endl;
+    fout << endl;
+
+    vector<double> x(n);
+    for(int i = n - 1; i >= 0; i--) {
+        double sum = 0;
+        for(int j = i + 1; j < n; j++)
+            sum += u[i][j] * x[j];
+        if(u[i][i] != 0)
+            x[i] = (y[i] - sum) / u[i][i];
+    }
+
+    if(u[n-1][n-1] == 0) {
+        if(y[n-1] == 0)
+            fout << "Infinite solution\n";
+        else
+            fout << "No solution\n";
+    } else {
+        fout << "X vector (Solution):\n";
+        for(int i = 0; i < n; i++)
+            fout << x[i] << " ";
+        fout << endl;
+    }
+    fout << "==============================\n\n";
+}
+
+int main() {
+    ifstream fin("input.txt");
+    ofstream fout("output.txt");
+    if(!fin || !fout) return 0;
+
+    int t;
+    fin >> t; // number of test cases
+    for(int tc = 1; tc <= t; tc++) {
+        int n;
+        fin >> n;
+        vector<vector<double>> a(n, vector<double>(n));
+        vector<double> b(n);
+
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n; j++)
+                fin >> a[i][j];
+            fin >> b[i];
+        }
+
+        LUX(a, n, b, fout, tc);
+    }
+
+    fin.close();
+    fout.close();
+    return 0;
+}
+
 ```
 
 #### LU Decomposition Input
 ```
-[Add your input format here]
+3
+3
+2 1 -1 8
+-3 -1 2 -11
+-2 1 2 -3
+3
+1 2 -1 3
+2 4 -2 6
+-1 -2 1 -3
+3
+1 2 -1 3
+2 4 -2 6
+-1 -2 1 0
+
 ```
 
 #### LU Decomposition Output
 ```
-[Add your output format here]
+==== Test Case 1 ====
+
+Original Matrix A:
+2 1 -1 
+-3 -1 2 
+-2 1 2 
+
+U matrix:
+2 1 -1 
+0 0.5 0.5 
+0 0 -1 
+
+L matrix:
+1 0 0 
+-1.5 1 0 
+-1 4 1 
+
+Y vector:
+8
+1
+1
+
+X vector (Solution):
+2 3 -1 
+==============================
+
+==== Test Case 2 ====
+
+Original Matrix A:
+1 2 -1 
+2 4 -2 
+-1 -2 1 
+
+U matrix:
+1 2 -1 
+0 0 0 
+0 0 0 
+
+L matrix:
+1 0 0 
+2 1 0 
+-1 0 1 
+
+Y vector:
+3
+0
+0
+
+Infinite solution
+==============================
+
+==== Test Case 3 ====
+
+Original Matrix A:
+1 2 -1 
+2 4 -2 
+-1 -2 1 
+
+U matrix:
+1 2 -1 
+0 0 0 
+0 0 0 
+
+L matrix:
+1 0 0 
+2 1 0 
+-1 0 1 
+
+Y vector:
+3
+0
+3
+
+No solution
+==============================
+
+
 ```
 
 ---  
