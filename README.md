@@ -3453,6 +3453,7 @@ $$
 
 > **Note:** All input values of \(x\) and \(y\) must be positive because logarithmic transformation is applied during computation.
 
+
 **Output Characteristics**
 
 - Displays the general form of the transcendental (power) equation.
@@ -3542,7 +3543,7 @@ Regression Line is: y = 2.70x^(0.98)
 ### Least Squares Regression (Polynomial) Method
 
 #### Least Squares Regression (Polynomial) Theory
-## Polynomial Regression Using Least Squares Method
+
 
 Polynomial Regression is a numerical technique used to fit a polynomial curve to a given set of data points. It extends simple linear regression by allowing higher-degree polynomial relationships between variables.
 
@@ -3605,7 +3606,11 @@ where
 - Second line contains \(n\) real values representing \(x\)
 - Third line contains \(n\) real values representing \(y\)
 
-### Sample Input
+## Output Characteristics
+
+- Displays the number of data points and polynomial degree
+- Prints the augmented normal equation matrix
+- Displays the fitted polynomial regression equation
 
 
 #### Least Squares Regression (Polynomial) Code
