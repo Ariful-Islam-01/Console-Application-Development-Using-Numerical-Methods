@@ -993,65 +993,125 @@ No solution
 ### Matrix Inversion
 
 #### Matrix Inversion Theory
+Matrix Inversion is a numerical method used to solve a system of linear equations of the form:
 
-Matrix Inversion is a method to solve a system of linear equations $$\(A \cdot X = B\) $$ by computing the **inverse of the coefficient matrix $$\(A\)$$**. If $$A^{-1}$$
-exists, the solution is:
+$$
+A \cdot X = B
+$$
+
+where  
+- \(A\) is the coefficient matrix  
+- \(X\) is the vector of unknowns  
+- \(B\) is the constant vector  
+
+If the inverse of matrix \(A\) exists, the solution is:
 
 $$
 X = A^{-1} \cdot B
 $$
 
----
 
-## Theory
 
-- The **determinant** of \(A\) must be non-zero for the inverse to exist:
+## Condition for Inverse
 
-$$
-\text{det}(A) \neq 0
-$$
-
-- The **adjoint (adjugate) matrix** is used to compute the inverse:
+The inverse of a square matrix exists only if its determinant is non-zero:
 
 $$
-A^{-1} = \frac{1}{\text{det}(A)} \cdot \text{adj}(A)
+\det(A) \neq 0
 $$
 
-- The **cofactor matrix** is computed for each element:
+If $$\det(A) = 0$$, the matrix is singular and the system has either **no solution** or **infinitely many solutions**.
+
+
+
+## Determinant
+
+The determinant of a matrix is calculated using cofactor expansion:
 
 $$
-C_{ij} = (-1)^{i+j} \cdot \text{det}(M_{ij})
+\det(A) = \sum_{j=1}^{n} (-1)^{1+j} a_{1j} \cdot \det(M_{1j})
 $$
 
-Where \(M_{ij}\) is the submatrix after removing the \(i\)-th row and \(j\)-th column.  
 
-- The adjoint is the **transpose of the cofactor matrix**:
+
+## Cofactor
+
+The cofactor of an element \(a_{ij}\) is defined as:
+
+$$
+C_{ij} = (-1)^{i+j} \cdot \det(M_{ij})
+$$
+
+
+
+## Adjoint Matrix
+
+The adjoint of a matrix is the transpose of the cofactor matrix:
 
 $$
 \text{adj}(A) = [C_{ij}]^T
 $$
 
----
 
-**Input Characteristics**
 
-- The first line contains an integer \(n\), the number of rows/columns of the square matrix.  
-- The next \(n\) lines contain \(n\) real numbers each (the matrix \(A\)).
+## Inverse Matrix
 
-The input format is:
+The inverse of matrix \(A\) is given by:
 
 $$
+A^{-1} = \frac{1}{\det(A)} \cdot \text{adj}(A)
+$$
+
+
+
+## Solving the System Using Inverse Matrix
+
+Given:
+
+$$
+A \cdot X = B
+$$
+
+Multiplying both sides by \(A^{-1}\):
+
+$$
+X = A^{-1} \cdot B
+$$
+
+This method provides a **unique solution** only when $$\det(A) \neq 0$$.
+
+
+
+## Augmented Matrix Representation
+
+The system is provided as an augmented matrix:
+
+$$
+[A|B] =
 \begin{bmatrix}
-a_{11} & a_{12} & \cdots & a_{1n} \\
-a_{21} & a_{22} & \cdots & a_{2n} \\
-\vdots & \vdots & \ddots & \vdots \\
-a_{n1} & a_{n2} & \cdots & a_{nn}
+a_{11} & a_{12} & \cdots & a_{1n} & b_1 \\
+a_{21} & a_{22} & \cdots & a_{2n} & b_2 \\
+\vdots & \vdots & \ddots & \vdots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} & b_n
 \end{bmatrix}
 $$
 
-**Output Characteristics**
+- First \(n\) columns represent matrix \(A\)
+- Last column represents vector \(B\)
 
-- If the determinant is non-zero, the program outputs the **inverse matrix** with 3 decimal precision:
+
+## Input Characteristics
+
+- First line: integer \(n\) (order of the matrix)
+- Next \(n\) lines: \(n+1\) real numbers (augmented matrix)
+
+
+
+## Output Format
+
+- Inverse matrix (up to 3 decimal places)
+- Solution of the system
+
 
 #### Matrix Inversion Code
 ```cpp
@@ -1095,49 +1155,62 @@ void adjoint(double A[MAX][MAX], double adj[MAX][MAX], int n) {
         }
 }
 
-void matrix_inverse(double A[MAX][MAX], int n, ofstream &fout) {
+bool matrix_inverse(double A[MAX][MAX], int n, double inv[MAX][MAX], ofstream &fout) {
     double det = determinant(A, n);
     if (det == 0) {
-        fout << "Inverse does not exist (determinant = 0)\n";
-        return;
+        fout << "No unique solution (determinant = 0)\n";
+        return false;
     }
-    double adj[MAX][MAX], inv[MAX][MAX];
+    double adj[MAX][MAX];
     adjoint(A, adj, n);
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
             inv[i][j] = adj[i][j] / det;
-
     fout << fixed << setprecision(3) << "Inverse Matrix:\n";
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) fout << inv[i][j] << " ";
         fout << "\n";
     }
+    return true;
+}
+
+void solve_system(double inv[MAX][MAX], double B[MAX], int n, ofstream &fout) {
+    double X[MAX] = {0};
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            X[i] += inv[i][j] * B[j];
+    fout << "Solution:\n";
+    char var = 'x';
+    for (int i = 0; i < n; i++)
+        fout << var++ << " = " << X[i] << "\n";
 }
 
 int main() {
     ifstream fin("input.txt");
     ofstream fout("output.txt");
     if (!fin || !fout) return 0;
-
     int T;
-    fin >> T; // number of test cases
+    fin >> T;
     for (int t = 1; t <= T; t++) {
         int n;
         fin >> n;
-        double A[MAX][MAX];
-        for (int i = 0; i < n; i++)
+        double A[MAX][MAX], B[MAX], inv[MAX][MAX];
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++)
                 fin >> A[i][j];
-
+            fin >> B[i];
+        }
         fout << "Test case #" << t << ":\n";
-        matrix_inverse(A, n, fout);
+        if (matrix_inverse(A, n, inv, fout)) {
+            solve_system(inv, B, n, fout);
+        }
         fout << "\n";
     }
-
     fin.close();
     fout.close();
     return 0;
 }
+
 
 ```
 
@@ -1145,16 +1218,18 @@ int main() {
 ```
 3
 3
-2 1 1
-1 3 2
-1 0 0
+2 1 1 5
+1 3 2 7
+1 0 0 1
 3
-1 2 3
-2 4 6
-3 6 9
-2
-4 7
-2 6
+1 2 3 6
+2 4 6 12
+3 6 9 18
+3
+1 2 3 6
+2 4 6 2
+3 6 9 7
+
 
 ```
 
@@ -1165,14 +1240,18 @@ Inverse Matrix:
 -0.000 0.000 1.000 
 -2.000 1.000 3.000 
 3.000 -1.000 -5.000 
+Solution:
+x = 1.000
+y = 0.000
+z = 3.000
 
 Test case #2:
-Inverse does not exist (determinant = 0)
+No unique solution (determinant = 0)
 
 Test case #3:
-Inverse Matrix:
-0.600 -0.700 
--0.200 0.400 
+No unique solution (determinant = 0)
+
+
 
 
 ```  
