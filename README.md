@@ -273,21 +273,198 @@ The application allows users to select a numerical method from a menu, provide n
 ### Gauss Jordan Elimination Method
 
 #### Gauss Jordan Theory
-[Add your theory content here]
+Gauss–Jordan Elimination is a numerical method used to solve a system of linear equations.
+It converts the augmented matrix of the system into **Reduced Row Echelon Form (RREF)**,
+where the coefficient matrix becomes an identity matrix and the solution is obtained
+directly from the last column.
+
+
+
+## Mathematical Formulation
+
+A system of `n` linear equations with `n` unknowns is given by:
+
+$$
+\begin{aligned}
+a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n &= b_1 \\
+a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n &= b_2 \\
+\vdots \\
+a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n &= b_n
+\end{aligned}
+$$
+
+This system can be represented in augmented matrix form as:
+
+$$
+\left[
+\begin{array}{cccc|c}
+a_{11} & a_{12} & \cdots & a_{1n} & b_1 \\
+a_{21} & a_{22} & \cdots & a_{2n} & b_2 \\
+\vdots & \vdots & \ddots & \vdots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} & b_n
+\end{array}
+\right]
+$$
+
+
+
+**Gauss–Jordan Elimination Procedure**
+
+1. Select a non-zero pivot element in the current column.
+2. Interchange rows if necessary to bring the pivot to the diagonal position.
+3. Divide the entire pivot row by the pivot element to make the pivot equal to 1.
+4. Use row operations to eliminate all other elements in the pivot column.
+5. Repeat the steps until the coefficient matrix becomes an identity matrix.
+
+After completion, the matrix becomes:
+
+$$
+\left[
+\begin{array}{cccc|c}
+1 & 0 & 0 & \cdots & x_1 \\
+0 & 1 & 0 & \cdots & x_2 \\
+0 & 0 & 1 & \cdots & x_3 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \cdots & x_n
+\end{array}
+\right]
+$$
+
+
+**Input Characteristics**
+
+- The first line contains an integer $$n$$, the number of equations.
+- The next $$n$$ lines contain $$n+1$$ real numbers each.
+- Each row represents the coefficients of the variables followed by the constant term.
+
+$$
+\begin{aligned}
+n \\
+a_{11}\ a_{12}\ \cdots\ a_{1n}\ b_1 \\
+a_{21}\ a_{22}\ \cdots\ a_{2n}\ b_2 \\
+\vdots \\
+a_{n1}\ a_{n2}\ \cdots\ a_{nn}\ b_n
+\end{aligned}
+$$
+
+**Output Characteristics**
+
+- The initial augmented matrix is displayed.
+- The augmented matrix after each Gauss–Jordan elimination step is printed.
+- The final solution of the system is shown as:
+
+$$
+x_1 = value,\quad x_2 = value,\quad \ldots,\quad x_n = value
+$$
+
 
 #### Gauss Jordan Code
 ```cpp
-# Add your code here
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ifstream fin("input.txt");
+    ofstream fout("output.txt");
+
+    int n;
+    fin >> n;
+
+    vector<vector<double>> a(n, vector<double>(n + 1));
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j <= n; j++){
+            fin >> a[i][j];
+        }
+    }
+
+    fout << fixed << setprecision(6);
+
+    fout << "Initial Augmented Matrix:\n";
+    for(auto &row : a){
+        for(double v : row)
+            fout << setw(10) << v;
+        fout << "\n";
+    }
+
+    for(int i = 0; i < n; i++){
+
+        int maxRow = i;
+        for(int k = i + 1; k < n; k++){
+            if(fabs(a[k][i]) > fabs(a[maxRow][i]))
+                maxRow = k;
+        }
+        swap(a[i], a[maxRow]);
+
+        double pivot = a[i][i];
+        if(fabs(pivot) < 1e-12) return 0;
+
+        for(int j = 0; j <= n; j++)
+            a[i][j] /= pivot;
+
+        for(int k = 0; k < n; k++){
+            if(k != i){
+                double factor = a[k][i];
+                for(int j = 0; j <= n; j++)
+                    a[k][j] -= factor * a[i][j];
+            }
+        }
+
+        fout << "\nMatrix after step " << i + 1 << ":\n";
+        for(auto &row : a){
+            for(double v : row)
+                fout << setw(10) << v;
+            fout << "\n";
+        }
+    }
+
+    fout << "\nFinal Solution:\n";
+    for(int i = 0; i < n; i++){
+        fout << "x" << i + 1 << " = " << a[i][n] << "\n";
+    }
+
+    fin.close();
+    fout.close();
+    return 0;
+}
+
 ```
 
 #### Gauss Jordan Input
 ```
-[Add your input format here]
+3
+2 1 -1 8
+-3 -1 2 -11
+-2 1 2 -3
+
 ```
 
 #### Gauss Jordan Output
 ```
-[Add your output format here]
+Initial Augmented Matrix:
+  2.000000  1.000000 -1.000000  8.000000
+ -3.000000 -1.000000  2.000000-11.000000
+ -2.000000  1.000000  2.000000 -3.000000
+
+Matrix after step 1:
+  1.000000  0.333333 -0.666667  3.666667
+  0.000000  0.333333  0.333333  0.666667
+  0.000000  1.666667  0.666667  4.333333
+
+Matrix after step 2:
+  1.000000  0.000000 -0.800000  2.800000
+  0.000000  1.000000  0.400000  2.600000
+  0.000000  0.000000  0.200000 -0.200000
+
+Matrix after step 3:
+  1.000000  0.000000  0.000000  2.000000
+  0.000000  1.000000  0.000000  3.000000
+  0.000000  0.000000  1.000000 -1.000000
+
+Final Solution:
+x1 = 2.000000
+x2 = 3.000000
+x3 = -1.000000
+
 ```
 
 ---
