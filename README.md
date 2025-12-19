@@ -3182,7 +3182,88 @@ The relative error of f''(p) = 17.384%
 ### Least Squares Regression (Linear) Method
 
 #### Least Squares Regression (Linear) Theory
-[Add your theory content here]
+
+Simple Linear Regression is a statistical method used to model the relationship between two variables by fitting a straight line to observed data points. The relationship is expressed as a linear equation:
+
+$$
+y = a + bx
+$$
+
+where  
+- \(x\) is the independent variable  
+- \(y\) is the dependent variable  
+- \(a\) is the intercept of the regression line  
+- \(b\) is the slope of the regression line  
+
+
+
+**Principle of Least Squares**
+
+The method is based on the **principle of least squares**, which states that the best-fit line is the one that minimizes the sum of the squares of the vertical deviations (errors) between the observed values and the values predicted by the line.
+
+
+**Mathematical Formulation**
+
+Given \(n\) observations:
+
+$$
+(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)
+$$
+
+the coefficients \(a\) and \(b\) are calculated using the following formulas:
+
+### Slope (\(b\))
+
+$$
+b = \frac{n\sum x_iy_i - (\sum x_i)(\sum y_i)}
+         {n\sum x_i^2 - (\sum x_i)^2}
+$$
+
+**Intercept (\(a\))**
+
+$$
+a = \frac{\sum y_i - b\sum x_i}{n}
+$$
+
+
+
+**Regression Line**
+
+After calculating \(a\) and \(b\), the regression equation becomes:
+
+$$
+y = a + bx
+$$
+
+This equation can be used to estimate the value of \(y\) for any given value of \(x\).
+
+
+**Prediction**
+
+For a given value \(x = x_0\), the predicted value of \(y\) is:
+
+$$
+y = a + bx_0
+$$
+
+**Input Characteristics**
+
+- First line contains an integer \(n\), the number of observations.
+- Second line contains \(n\) real values representing the independent variable \(x\).
+- Third line contains \(n\) real values representing the dependent variable \(y\).
+
+
+**Output Characteristics**
+
+
+- Displays the general form of the linear regression equation.
+- Prints the predicted value of \(y\) for a given value of \(x\).
+- Prints the regression line with coefficients rounded to two decimal places.
+
+
+
+
+
 
 #### Least Squares Regression (Linear) Code
 ```cpp
@@ -3267,7 +3348,118 @@ Regression Line is: y = 1.30 + 0.90x
 ### Least Squares Regression (Transcendental) Method
 
 #### Least Squares Regression (Transcendental) Theory
-[Add your theory content here]
+
+Transcendental curve fitting is used when the relationship between two variables follows a power-law form:
+
+$$
+y = ax^b
+$$
+
+where  
+- \(x\) is the independent variable  
+- \(y\) is the dependent variable  
+- \(a\) and \(b\) are constants to be determined  
+
+
+
+## Linearization of the Model
+
+The given equation is nonlinear. Taking the natural logarithm on both sides:
+
+$$
+\ln y = \ln a + b \ln x
+$$
+
+Let:
+
+$$
+Y = \ln y,\quad X = \ln x,\quad A = \ln a
+$$
+
+Then the equation becomes linear:
+
+$$
+Y = A + bX
+$$
+
+This transformed equation can be solved using the **Least Squares Method**.
+
+
+
+## Least Squares Formulation
+
+Given \(n\) data points:
+
+$$
+(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)
+$$
+
+After transformation:
+
+$$
+(X_i, Y_i) = (\ln x_i, \ln y_i)
+$$
+
+The coefficients are calculated as:
+
+### Slope (\(b\))
+
+$$
+b = \frac{n\sum X_iY_i - (\sum X_i)(\sum Y_i)}
+         {n\sum X_i^2 - (\sum X_i)^2}
+$$
+
+### Intercept (\(\ln a\))
+
+$$
+\ln a = \frac{\sum Y_i - b\sum X_i}{n}
+$$
+
+The value of \(a\) is obtained by:
+
+$$
+a = e^{\ln a}
+$$
+
+
+
+## Final Regression Equation
+
+After computing \(a\) and \(b\), the fitted curve becomes:
+
+$$
+y = ax^b
+$$
+
+
+
+## Prediction
+
+For any given value \(x = x_0\), the predicted value of \(y\) is:
+
+$$
+y = ax_0^b
+$$
+**Input Characteristics**
+
+- First line contains an integer \(n\), the number of observed data points.
+- Second line contains \(n\) positive real values representing the independent variable \(x\).
+- Third line contains \(n\) positive real values representing the dependent variable \(y\).
+- A fixed value \(x_0\) is used to predict the corresponding value of \(y\) using the equation:
+
+$$
+y = ax_0^b
+$$
+
+> **Note:** All input values of \(x\) and \(y\) must be positive because logarithmic transformation is applied during computation.
+
+**Output Characteristics**
+
+- Displays the general form of the transcendental (power) equation.
+- Prints the estimated value of \(y\) for a given value of \(x\).
+- Prints the fitted regression curve with coefficients rounded to two decimal places.
+
+---
 
 #### Least Squares Regression (Transcendental) Code
 ```cpp
@@ -3350,7 +3542,71 @@ Regression Line is: y = 2.70x^(0.98)
 ### Least Squares Regression (Polynomial) Method
 
 #### Least Squares Regression (Polynomial) Theory
-[Add your theory content here]
+## Polynomial Regression Using Least Squares Method
+
+Polynomial Regression is a numerical technique used to fit a polynomial curve to a given set of data points. It extends simple linear regression by allowing higher-degree polynomial relationships between variables.
+
+The general form of a polynomial of degree \(m\) is:
+
+$$
+y = a_0 + a_1x + a_2x^2 + \cdots + a_mx^m
+$$
+
+where  
+- \(x\) is the independent variable  
+- \(y\) is the dependent variable  
+- \(a_0, a_1, \dots, a_m\) are unknown coefficients  
+
+---
+
+## Least Squares Principle
+
+The method determines the coefficients such that the **sum of squared errors** between the observed values and the predicted values is minimized:
+
+$$
+\sum_{i=1}^{n} (y_i - f(x_i))^2
+$$
+
+---
+
+## Normal Equations
+
+Applying the least squares method results in a system of linear equations known as **normal equations**:
+
+$$
+\sum x^k y = a_0 \sum x^k + a_1 \sum x^{k+1} + \cdots + a_m \sum x^{k+m}
+$$
+
+for \(k = 0, 1, 2, \dots, m\).
+
+These equations are written in matrix form and solved using **Gaussian Elimination**.
+
+---
+
+## Augmented Matrix Representation
+
+The system of normal equations is represented as an augmented matrix:
+
+$$
+[A|B]
+$$
+
+where  
+- \(A\) contains the sums of powers of \(x\)  
+- \(B\) contains the sums of products of \(x^k y\)
+
+---
+
+## Input Characteristics
+
+- First line contains two integers:
+  - \(n\): number of data points  
+  - \(m\): degree of the polynomial
+- Second line contains \(n\) real values representing \(x\)
+- Third line contains \(n\) real values representing \(y\)
+
+### Sample Input
+
 
 #### Least Squares Regression (Polynomial) Code
 ```cpp
