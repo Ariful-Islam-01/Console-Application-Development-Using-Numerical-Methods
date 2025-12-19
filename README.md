@@ -993,21 +993,188 @@ No solution
 ### Matrix Inversion
 
 #### Matrix Inversion Theory
-[Add your theory content here]
+
+Matrix Inversion is a method to solve a system of linear equations $$\(A \cdot X = B\) $$ by computing the **inverse of the coefficient matrix $$\(A\)$$**. If $$A^{-1}$$
+exists, the solution is:
+
+$$
+X = A^{-1} \cdot B
+$$
+
+---
+
+## Theory
+
+- The **determinant** of \(A\) must be non-zero for the inverse to exist:
+
+$$
+\text{det}(A) \neq 0
+$$
+
+- The **adjoint (adjugate) matrix** is used to compute the inverse:
+
+$$
+A^{-1} = \frac{1}{\text{det}(A)} \cdot \text{adj}(A)
+$$
+
+- The **cofactor matrix** is computed for each element:
+
+$$
+C_{ij} = (-1)^{i+j} \cdot \text{det}(M_{ij})
+$$
+
+Where \(M_{ij}\) is the submatrix after removing the \(i\)-th row and \(j\)-th column.  
+
+- The adjoint is the **transpose of the cofactor matrix**:
+
+$$
+\text{adj}(A) = [C_{ij}]^T
+$$
+
+---
+
+**Input Characteristics**
+
+- The first line contains an integer \(n\), the number of rows/columns of the square matrix.  
+- The next \(n\) lines contain \(n\) real numbers each (the matrix \(A\)).
+
+The input format is:
+
+$$
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{bmatrix}
+$$
+
+**Output Characteristics**
+
+- If the determinant is non-zero, the program outputs the **inverse matrix** with 3 decimal precision:
 
 #### Matrix Inversion Code
 ```cpp
-# Add your code here
+#include <bits/stdc++.h>
+using namespace std;
+
+const int MAX = 10;
+
+void getCofactor(double A[MAX][MAX], double temp[MAX][MAX], int p, int q, int n) {
+    int i = 0, j = 0;
+    for (int row = 0; row < n; row++)
+        for (int col = 0; col < n; col++)
+            if (row != p && col != q) {
+                temp[i][j++] = A[row][col];
+                if (j == n - 1) { j = 0; i++; }
+            }
+}
+
+double determinant(double A[MAX][MAX], int n) {
+    if (n == 1) return A[0][0];
+    double temp[MAX][MAX];
+    double det = 0;
+    int sign = 1;
+    for (int col = 0; col < n; col++) {
+        getCofactor(A, temp, 0, col, n);
+        det += sign * A[0][col] * determinant(temp, n - 1);
+        sign = -sign;
+    }
+    return det;
+}
+
+void adjoint(double A[MAX][MAX], double adj[MAX][MAX], int n) {
+    if (n == 1) { adj[0][0] = 1; return; }
+    int sign;
+    double temp[MAX][MAX];
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++) {
+            getCofactor(A, temp, i, j, n);
+            sign = ((i + j) % 2 == 0) ? 1 : -1;
+            adj[j][i] = sign * determinant(temp, n - 1);
+        }
+}
+
+void matrix_inverse(double A[MAX][MAX], int n, ofstream &fout) {
+    double det = determinant(A, n);
+    if (det == 0) {
+        fout << "Inverse does not exist (determinant = 0)\n";
+        return;
+    }
+    double adj[MAX][MAX], inv[MAX][MAX];
+    adjoint(A, adj, n);
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            inv[i][j] = adj[i][j] / det;
+
+    fout << fixed << setprecision(3) << "Inverse Matrix:\n";
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) fout << inv[i][j] << " ";
+        fout << "\n";
+    }
+}
+
+int main() {
+    ifstream fin("input.txt");
+    ofstream fout("output.txt");
+    if (!fin || !fout) return 0;
+
+    int T;
+    fin >> T; // number of test cases
+    for (int t = 1; t <= T; t++) {
+        int n;
+        fin >> n;
+        double A[MAX][MAX];
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                fin >> A[i][j];
+
+        fout << "Test case #" << t << ":\n";
+        matrix_inverse(A, n, fout);
+        fout << "\n";
+    }
+
+    fin.close();
+    fout.close();
+    return 0;
+}
+
 ```
 
 #### Matrix Inversion Input
 ```
-[Add your input format here]
+3
+3
+2 1 1
+1 3 2
+1 0 0
+3
+1 2 3
+2 4 6
+3 6 9
+2
+4 7
+2 6
+
 ```
 
 #### Matrix Inversion Output
 ```
-[Add your output format here]
+Test case #1:
+Inverse Matrix:
+-0.000 0.000 1.000 
+-2.000 1.000 3.000 
+3.000 -1.000 -5.000 
+
+Test case #2:
+Inverse does not exist (determinant = 0)
+
+Test case #3:
+Inverse Matrix:
+0.600 -0.700 
+-0.200 0.400 
+
+
 ```  
 
 ---
