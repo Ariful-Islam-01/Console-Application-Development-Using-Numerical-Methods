@@ -252,21 +252,200 @@ The application allows users to select a numerical method from a menu, provide n
 ### Gauss Elimination Method
 
 #### Gauss Elimination Theory
-[Add your theory content here]
+
+
+Gauss Elimination is a direct numerical method used to solve a system of linear equations.  
+The method transforms the system into an **upper triangular matrix** using **forward elimination**, after which the unknown variables are calculated using **back substitution**.
+
+
+
+## Mathematical Representation
+
+A system of `n` linear equations with `n` unknowns can be written as:
+
+$$
+\begin{aligned}
+a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n &= b_1 \\
+a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n &= b_2 \\
+\vdots \\
+a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n &= b_n
+\end{aligned}
+$$
+
+This system can be represented as an **augmented matrix**:
+
+$$
+\left[
+\begin{array}{cccc|c}
+a_{11} & a_{12} & \cdots & a_{1n} & b_1 \\
+a_{21} & a_{22} & \cdots & a_{2n} & b_2 \\
+\vdots & \vdots & \ddots & \vdots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} & b_n
+\end{array}
+\right]
+$$
+
+
+
+**Gauss Elimination Procedure**
+
+1. **Forward Elimination**: Transform the matrix into an **upper triangular form** by eliminating the lower triangular entries using row operations.
+
+2. **Back Substitution**: After obtaining the upper triangular matrix, solve for the unknowns starting from the last equation upwards.
+
+After forward elimination, the matrix looks like:
+
+$$
+\left[
+\begin{array}{cccc|c}
+a_{11} & a_{12} & \cdots & a_{1n} & b_1 \\
+0 & a_{22} & \cdots & a_{2n} & b_2' \\
+\vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & 0 & \cdots & a_{nn} & b_n'
+\end{array}
+\right]
+$$
+
+---
+
+**Input Characteristics**
+
+- The first line contains an integer $$n$$, the number of equations.
+- The next $$n$$ lines contain $$n+1$$ real numbers each.
+- Each line represents one row of the augmented matrix.
+
+$$
+\begin{aligned}
+n \\
+a_{11}\ a_{12}\ \cdots\ a_{1n}\ b_1 \\
+a_{21}\ a_{22}\ \cdots\ a_{2n}\ b_2 \\
+\vdots \\
+a_{n1}\ a_{n2}\ \cdots\ a_{nn}\ b_n
+\end{aligned}
+$$
+
+
+
+**Output Characteristics**
+
+- The **initial augmented matrix** is displayed.
+- The **matrix after each elimination step** is printed.
+- Finally, the **solution of the system** is shown as:
+
+$$
+x_1 = value,\quad x_2 = value,\quad \ldots,\quad x_n = value
+$$
+
+
 
 #### Gauss Elimination Code
 ```cpp
-# Add your code here
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ifstream fin("input.txt");
+    ofstream fout("output.txt");
+
+    if (!fin) {
+        fout << "Error: input file not found!\n";
+        return 0;
+    }
+
+    int n;
+    fin >> n;
+
+    vector<vector<double>> a(n, vector<double>(n + 1));
+
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j <= n; j++)
+            fin >> a[i][j];
+
+    fout << "Initial Augmented Matrix:\n";
+    for (auto &row : a) {
+        for (double v : row) fout << setw(10) << v;
+        fout << "\n";
+    }
+
+    for (int i = 0; i < n; i++) {
+        int maxRow = i;
+        for (int k = i + 1; k < n; k++)
+            if (abs(a[k][i]) > abs(a[maxRow][i]))
+                maxRow = k;
+
+        swap(a[i], a[maxRow]);
+
+        if (abs(a[i][i]) < 1e-9) {
+            fout << "No unique solution exists\n";
+            return 0;
+        }
+
+        for (int k = i + 1; k < n; k++) {
+            double factor = a[k][i] / a[i][i];
+            for (int j = i; j <= n; j++)
+                a[k][j] -= factor * a[i][j];
+        }
+
+        fout << "\nMatrix after step " << i + 1 << ":\n";
+        for (auto &row : a) {
+            for (double v : row) fout << setw(10) << v;
+            fout << "\n";
+        }
+    }
+
+    vector<double> x(n);
+    for (int i = n - 1; i >= 0; i--) {
+        x[i] = a[i][n];
+        for (int j = i + 1; j < n; j++)
+            x[i] -= a[i][j] * x[j];
+        x[i] /= a[i][i];
+    }
+
+    fout << "\n====== Final Solution ======\n";
+    for (int i = 0; i < n; i++)
+        fout << "x" << i + 1 << " = " << x[i] << "\n";
+
+    return 0;
+}
+
 ```
 
 #### Gauss Elimination Input
 ```
-[Add your input format here]
+3
+2 1 -1 8
+-3 -1 2 -11
+-2 1 2 -3
+
 ```
 
 #### Gauss Elimination Output
 ```
-[Add your output format here]
+Initial Augmented Matrix:
+         2         1        -1         8
+        -3        -1         2       -11
+        -2         1         2        -3
+
+Matrix after step 1:
+        -3        -1         2       -11
+         0  0.333333  0.333333  0.666667
+         0   1.66667  0.666667   4.33333
+
+Matrix after step 2:
+        -3        -1         2       -11
+         0   1.66667  0.666667   4.33333
+         0         0       0.2      -0.2
+
+Matrix after step 3:
+        -3        -1         2       -11
+         0   1.66667  0.666667   4.33333
+         0         0       0.2      -0.2
+
+====== Final Solution ======
+x1 = 2
+x2 = 3
+x3 = -1
+
 ```
 
 ---  
