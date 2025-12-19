@@ -1,0 +1,12 @@
+
+Numer of Data Points: 5
+
+Degree of Polynomial: 2
+
+Normal Equation (Augmented) Matrix:
+5	15	55	100	
+15	55	225	380	
+55	225	979	1594	
+
+Polynomial Regression Equation:
+y = 3 + 2x^1 + 1x^2
