@@ -153,10 +153,10 @@
     <details>
     <summary><strong>Simpson’s 3/8th Rule</strong></summary>
 
-    - [Theory](#simpson-three-eighth-theory)
-    - [Code](#simpson-three-eighth-code)
-    - [Input](#simpson-three-eighth-input)
-    - [Output](#simpson-three-eighth-output)
+    - [Theory](#simpson’s-3/8th-rule-theory)
+    - [Code](#simpson’s-3/8th-rule-code)
+    - [Input](#simpson’s-3/8th-rule-input)
+    - [Output](#simpson’s-3/8th-rule-output)
 
     </details>
 
@@ -165,20 +165,20 @@
     <details>
     <summary><strong>Forward Interpolation Differentiation</strong></summary>
 
-    - [Theory](#forward-diff-theory)
-    - [Code](#forward-diff-code)
-    - [Input](#forward-diff-input)
-    - [Output](#forward-diff-output)
+    - [Theory](#differentiation-using-forward-interpolation-theory)
+    - [Code](#differentiation-using-forward-interpolation-code)
+    - [Input](#differentiation-using-forward-interpolation-input)
+    - [Output](#differentiation-using-forward-interpolation-output)
 
     </details>
 
     <details>
     <summary><strong>Backward Interpolation Differentiation</strong></summary>
 
-    - [Theory](#backward-diff-theory)
-    - [Code](#backward-diff-code)
-    - [Input](#backward-diff-input)
-    - [Output](#backward-diff-output)
+    - [Theory](#differentiation-using-backward-interpolation-theory)
+    - [Code](#differentiation-using-backward-interpolation-code)
+    - [Input](#differentiation-using-backward-interpolation-input)
+    - [Output](#differentiation-using-backward-interpolation-output)
 
     </details>
 
@@ -187,20 +187,20 @@
     <details>
     <summary><strong>Least Squares Regression (Linear)</strong></summary>
 
-    - [Theory](#ls-linear-theory)
-    - [Code](#ls-linear-code)
-    - [Input](#ls-linear-input)
-    - [Output](#ls-linear-output)
+    - [Theory](#least-squares-regression-linear-theory)
+    - [Code](#least-squares-regression-linear-code)
+    - [Input](#least-squares-regression-linear-input)
+    - [Output](#least-squares-regression-linear-output)
 
     </details>
 
     <details>
     <summary><strong>Least Squares Regression (Transcendental)</strong></summary>
 
-    - [Theory](#ls-trans-theory)
-    - [Code](#ls-trans-code)
-    - [Input](#ls-trans-input)
-    - [Output](#ls-trans-output)
+    - [Theory](#least-squares-regression-transcendental-theory)
+    - [Code](#least-squares-regression-transcendental-code)
+    - [Input](#least-squares-regression-transcendental-input)
+    - [Output](#least-squares-regression-transcendental-output)
 
     </details>
 
