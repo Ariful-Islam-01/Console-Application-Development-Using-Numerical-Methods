@@ -256,7 +256,7 @@ The application allows users to select a numerical method from a menu, provide n
 
 Gauss Elimination is a direct numerical method used to solve a system of linear equations. This method transforms the system into an **upper triangular matrix** using **forward elimination**, after which the unknown variables are calculated using **back substitution**.
 
-**Gauss Elimination Procedure :**
+**Gauss Elimination Procedure:**
 
 A system of `n` linear equations with `n` unknowns can be written as:
 
@@ -283,12 +283,12 @@ a_{n1} & a_{n2} & \cdots & a_{nn} & b_n
 $$
 
 
-**Forward Elimination**: Transform the matrix into an **upper triangular form** by eliminating the lower triangular entries using row operations.
+**Forward Elimination:** Transform the matrix into an **upper triangular form** by eliminating the lower triangular entries using row operations.
 
-**Back Substitution**: After obtaining the upper triangular matrix, solve for the unknowns starting from the last equation upwards.
+**Back Substitution:** After obtaining the upper triangular matrix, solve for the unknowns starting from the last equation upwards.
 
 
-**Input Characteristics :**
+**Input Characteristics:**
 
 - The first line contains an integer $$n$$, the number of equations.
 - The next $$n$$ lines contain $$n+1$$ real numbers each.
@@ -632,27 +632,7 @@ x3 = -1.000000
 
 #### LU Decomposition Theory
 
-LU Factorization (or LU Decomposition) is a numerical technique used to solve a system of linear equations.  
-It decomposes a square matrix $$A$$ into the product of a **Lower triangular matrix** $$L$$ and an **Upper triangular matrix** $$U$$, such that:
-
-$$
-A = L \cdot U
-$$
-
-Once the decomposition is done, the system:
-
-$$
-A \cdot X = B
-$$
-
-It can be solved in two steps:
-
-1. Solve $$L \cdot Y = B$$ using **forward substitution**.
-2. Solve $$U \cdot X = Y$$ using **back substitution**.
-
-
-
-**Mathematical Representation**
+LU Factorization (or LU Decomposition) is a numerical technique used to solve a system of linear equations. It decomposes a square matrix $$A$$ into the product of a **Lower triangular matrix** $$L$$ and an **Upper triangular matrix** $$U$$, such that:
 
 For a system of `n` equations:
 
@@ -680,18 +660,15 @@ a_{n1} & a_{n2} & \cdots & a_{nn}
 = L \cdot U
 $$
 
+Once the decomposition is done, the system:
 
-Where:
+$$
+A \cdot X = B
+$$
 
-- $$L$$ is a lower triangular matrix with ones on the diagonal.
-- $$U$$ is an upper triangular matrix.
+It can be solved in two steps:
 
-
-
-**LU Factorization Procedure**
-
-1. Decompose matrix $$A$$ into $$L$$ and $$U$$.
-2. Solve $$L \cdot Y = B$$ for $$Y$$ using **forward substitution**:
+- Solve $$L \cdot Y = B$$ for $$Y$$ using **forward substitution**:
 
 $$
 y_1 = b_1,\quad
@@ -699,18 +676,16 @@ y_2 = b_2 - L_{21}y_1,\quad \dots,\quad
 y_n = b_n - \sum_{j=1}^{n-1} L_{nj} y_j
 $$
 
-3. Solve $$U \cdot X = Y$$ for $$X$$ using **back substitution**:
+- Solve $$U \cdot X = Y$$ for $$X$$ using **back substitution**:
 
 $$
 x_n = \frac{y_n}{U_{nn}},\quad
 x_{n-1} = \frac{y_{n-1} - U_{n-1,n} x_n}{U_{n-1,n-1}},\quad \dots
 $$
 
-4. Check for **infinite solutions** or **no solution** if any row in $$U$$ is all zeros.
 
 
-
-**Input Characteristics**
+##### Input Characteristics:
 
 - The first line contains an integer \(t\), the number of test cases.
 - For each test case:
@@ -733,7 +708,7 @@ a_{11} & a_{12} & \cdots & a_{1n} & b_1 \\
 \end{aligned}
 $$
 
-## Output Characteristics
+##### Output Characteristics:
 
 - **L matrix** (lower triangular with 1s on diagonal)  
 - **U matrix** (upper triangular)  
