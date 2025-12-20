@@ -3655,7 +3655,7 @@ y = 3 + 2x^1 + 1x^2
 This project was developed by :
 
 - SK. NAZMUS SALEHIN NIROB – Roll : 2207045
-- A. R. M. Ariful Islam – Roll : 2207046
+- A. R. M. ARIFUL ISLAM – Roll : 2207046
 - PRIOM SARKAR – Roll : 2207048
 
 [⬆](#table-of-contents)
