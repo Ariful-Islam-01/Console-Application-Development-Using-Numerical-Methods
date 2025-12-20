@@ -372,7 +372,7 @@ int main() {
         x[i] /= a[i][i];
     }
 
-    fout << "\n====== Final Solution ======\n";
+    fout << "\n Final Solution \n";
     for (int i = 0; i < n; i++)
         fout << "x" << i + 1 << " = " << x[i] << "\n";
 
@@ -412,7 +412,7 @@ Matrix after step 3:
          0   1.66667  0.666667   4.33333
          0         0       0.2      -0.2
 
-====== Final Solution ======
+Final Solution
 x1 = 2
 x2 = 3
 x3 = -1
@@ -953,7 +953,7 @@ $$
 
 
 
-## Condition for Inverse
+**Condition for Inverse**
 
 The inverse of a square matrix exists only if its determinant is non-zero:
 
@@ -965,7 +965,7 @@ If $$\det(A) = 0$$, the matrix is singular and the system has either **no soluti
 
 
 
-## Determinant
+**Determinant**
 
 The determinant of a matrix is calculated using cofactor expansion:
 
@@ -975,7 +975,7 @@ $$
 
 
 
-## Cofactor
+**Cofactor**
 
 The cofactor of an element \(a_{ij}\) is defined as:
 
@@ -985,7 +985,7 @@ $$
 
 
 
-## Adjoint Matrix
+**Adjoint Matrix**
 
 The adjoint of a matrix is the transpose of the cofactor matrix:
 
@@ -995,7 +995,7 @@ $$
 
 
 
-## Inverse Matrix
+**Inverse Matrix**
 
 The inverse of matrix \(A\) is given by:
 
@@ -1005,7 +1005,7 @@ $$
 
 
 
-## Solving the System Using Inverse Matrix
+**Solving the System Using Inverse Matrix**
 
 Given:
 
@@ -1023,7 +1023,7 @@ This method provides a **unique solution** only when $$\det(A) \neq 0$$.
 
 
 
-## Augmented Matrix Representation
+**Augmented Matrix Representation**
 
 The system is provided as an augmented matrix:
 
@@ -1041,17 +1041,21 @@ $$
 - Last column represents vector \(B\)
 
 
-## Input Characteristics
+**Input Characteristics**
 
-- First line: integer \(n\) (order of the matrix)
-- Next \(n\) lines: \(n+1\) real numbers (augmented matrix)
+- First line: integer T (number of test cases)
+- For each test case:
+- First line: integer n (order of the matrix)
+- Next n lines: n + 1 real numbers representing the augmented matrix (coefficients and constants)
 
 
 
-## Output Format
+**Output Format**
 
-- Inverse matrix (up to 3 decimal places)
-- Solution of the system
+- For each test case, the program outputs:
+- The inverse matrix (rounded to 3 decimal places)
+- The solution of the system of linear equations
+- If the determinant is zero, a message indicating no unique solution
 
 
 #### Matrix Inversion Code
