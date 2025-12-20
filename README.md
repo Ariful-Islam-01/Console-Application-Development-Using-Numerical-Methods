@@ -3075,14 +3075,14 @@ $$
 
 the coefficients \(a\) and \(b\) are calculated using the following formulas:
 
-### Slope (\(b\))
+**Slope \(b\)**
 
 $$
 b = \frac{n\sum x_iy_i - (\sum x_i)(\sum y_i)}
          {n\sum x_i^2 - (\sum x_i)^2}
 $$
 
-**Intercept (\(a\))**
+**Intercept \(a\)**
 
 $$
 a = \frac{\sum y_i - b\sum x_i}{n}
@@ -3101,31 +3101,24 @@ $$
 This equation can be used to estimate the value of \(y\) for any given value of \(x\).
 
 
-**Prediction**
-
-For a given value \(x = x_0\), the predicted value of \(y\) is:
-
-$$
-y = a + bx_0
-$$
-
 **Input Characteristics**
 
 - First line contains an integer \(n\), the number of observations.
 - Second line contains \(n\) real values representing the independent variable \(x\).
 - Third line contains \(n\) real values representing the dependent variable \(y\).
+- A fixed value \(x_0\) is used to predict the corresponding value of \(y\) using the equation:
+
+$$
+y = a + bx_0
+$$
 
 
 **Output Characteristics**
 
 
 - Displays the general form of the linear regression equation.
-- Prints the predicted value of \(y\) for a given value of \(x\).
+- Prints the predicted value of \(y\) for a fixed value of \(x\).
 - Prints the regression line with coefficients rounded to two decimal places.
-
-
-
-
 
 
 #### Least Squares Regression (Linear) Code
@@ -3225,7 +3218,7 @@ where
 
 
 
-## Linearization of the Model
+**Linearization of the Model**
 
 The given equation is nonlinear. Taking the natural logarithm on both sides:
 
@@ -3249,7 +3242,7 @@ This transformed equation can be solved using the **Least Squares Method**.
 
 
 
-## Least Squares Formulation
+**Least Squares Formulation**
 
 Given \(n\) data points:
 
@@ -3265,14 +3258,14 @@ $$
 
 The coefficients are calculated as:
 
-### Slope (\(b\))
+**Slope \(b\)**
 
 $$
 b = \frac{n\sum X_iY_i - (\sum X_i)(\sum Y_i)}
          {n\sum X_i^2 - (\sum X_i)^2}
 $$
 
-### Intercept (\(\ln a\))
+**Intercept \(\ln a\)**
 
 $$
 \ln a = \frac{\sum Y_i - b\sum X_i}{n}
@@ -3284,24 +3277,12 @@ $$
 a = e^{\ln a}
 $$
 
-
-
-## Final Regression Equation
+**Final Regression Equation**
 
 After computing \(a\) and \(b\), the fitted curve becomes:
 
 $$
 y = ax^b
-$$
-
-
-
-## Prediction
-
-For any given value \(x = x_0\), the predicted value of \(y\) is:
-
-$$
-y = ax_0^b
 $$
 
 **Input Characteristics**
@@ -3315,16 +3296,12 @@ $$
 y = ax_0^b
 $$
 
-> **Note:** All input values of \(x\) and \(y\) must be positive because logarithmic transformation is applied during computation.
-
-
 **Output Characteristics**
 
 - Displays the general form of the transcendental (power) equation.
-- Prints the estimated value of \(y\) for a given value of \(x\).
+- Prints the estimated value of \(y\) for a fixed value of \(x\).
 - Prints the fitted regression curve with coefficients rounded to two decimal places.
 
----
 
 #### Least Squares Regression (Transcendental) Code
 ```cpp
@@ -3422,9 +3399,7 @@ where
 - \(y\) is the dependent variable  
 - \(a_0, a_1, \dots, a_m\) are unknown coefficients  
 
----
-
-## Least Squares Principle
+**Least Squares Principle**
 
 The method determines the coefficients such that the **sum of squared errors** between the observed values and the predicted values is minimized:
 
@@ -3432,9 +3407,7 @@ $$
 \sum_{i=1}^{n} (y_i - f(x_i))^2
 $$
 
----
-
-## Normal Equations
+**Normal Equations**
 
 Applying the least squares method results in a system of linear equations known as **normal equations**:
 
@@ -3446,23 +3419,19 @@ for \(k = 0, 1, 2, \dots, m\).
 
 These equations are written in matrix form and solved using **Gaussian Elimination**.
 
----
-
-## Augmented Matrix Representation
+**Augmented Matrix Representation**
 
 The system of normal equations is represented as an augmented matrix:
 
 $$
-[A|B]
+[A | B]
 $$
 
 where  
 - \(A\) contains the sums of powers of \(x\)  
 - \(B\) contains the sums of products of \(x^k y\)
 
----
-
-## Input Characteristics
+**Input Characteristics**
 
 - First line contains two integers:
   - \(n\): number of data points  
@@ -3470,7 +3439,7 @@ where
 - Second line contains \(n\) real values representing \(x\)
 - Third line contains \(n\) real values representing \(y\)
 
-## Output Characteristics
+**Output Characteristics**
 
 - Displays the number of data points and polynomial degree
 - Prints the augmented normal equation matrix
