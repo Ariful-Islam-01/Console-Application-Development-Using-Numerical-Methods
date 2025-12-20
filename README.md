@@ -1427,7 +1427,7 @@ where $$\( \varepsilon \)$$ is the prescribed tolerance.
 
 The Regular False Position Method is generally faster than the Bisection Method because it uses the function values to estimate the root, although in some cases convergence may be slower if one endpoint remains fixed.
 
----
+
 
 **Input Format**
 
@@ -1449,14 +1449,14 @@ $$
 \varepsilon
 $$
 
----
 
-**Output FFormat**
+
+**Output Format**
 
 - All real roots of the function lying within the interval \( [L, R] \) are displayed.
 - For each root, the **corresponding sub-interval** and the **approximate root value** are shown.
 
----
+
 
 #### False Position Code
 ```cpp
@@ -1571,7 +1571,7 @@ $$
 
 The Secant Method typically converges faster than the Bisection Method, although it **may fail to converge** if the initial guesses are not sufficiently close to the root. It is particularly useful when derivative information is not available, unlike the Newton-Raphson Method.
 
----
+
 
 **Input Format**
 
@@ -1589,7 +1589,7 @@ $$
 \varepsilon
 $$
 
----
+
 
 **Output Format**
 
@@ -1712,7 +1712,7 @@ $$
 
 The Newton-Raphson Method typically converges faster than the Bisection or Secant Methods, especially when the initial guess is sufficiently close to the root. However, it **may fail to converge** if the derivative is zero or the initial guess is far from the actual root.
 
----
+
 
 **Input Format**
 
@@ -1728,7 +1728,7 @@ $$
 \varepsilon
 $$
 
----
+
 
 **Output Format**
 
@@ -1830,9 +1830,9 @@ $$
 
 It provides a highly accurate approximation of \(y\) at successive points by combining **weighted slopes**.
 
----
 
-### Step Calculation
+
+**Step Calculation**
 
 For each step of size \(h\), the RK4 method calculates:
 
@@ -1881,7 +1881,7 @@ $$
   - Updated value of **y** at the new **x**  
 - Values are formatted with **6 decimal places**.  
 - Steps continue until **x ≥ xf**.
----
+
 
 #### Runge-Kutta Code
 ```cpp
