@@ -111,30 +111,30 @@
     <details>
     <summary><strong>Newton Forward Interpolation</strong></summary>
 
-    - [Theory](#newton-forward-theory)
-    - [Code](#newton-forward-code)
-    - [Input](#newton-forward-input)
-    - [Output](#newton-forward-output)
+    - [Theory](#newton-forward-interpolation-theory)
+    - [Code](#newton-forward-interpolation-code)
+    - [Input](#newton-forward-interpolation-input)
+    - [Output](#newton-forward-interpolation-output)
 
     </details>
 
     <details>
     <summary><strong>Newton Backward Interpolation</strong></summary>
 
-    - [Theory](#newton-backward-theory)
-    - [Code](#newton-backward-code)
-    - [Input](#newton-backward-input)
-    - [Output](#newton-backward-output)
+    - [Theory](#newton-backward-interpolation-theory)
+    - [Code](#newton-backward-interpolation-code)
+    - [Input](#newton-backward-interpolation-input)
+    - [Output](#newton-backward-interpolation-output)
 
     </details>
 
     <details>
     <summary><strong>Newton Divided Difference Interpolation</strong></summary>
 
-    - [Theory](#newton-divided-theory)
-    - [Code](#newton-divided-code)
-    - [Input](#newton-divided-input)
-    - [Output](#newton-divided-output)
+    - [Theory](#newton-divided-difference-interpolation-theory)
+    - [Code](#newton-divided-difference-interpolation-code)
+    - [Input](#newton-divided-difference-interpolation-input)
+    - [Output](#newton-divided-difference-interpolation-output)
 
     </details>
 
@@ -143,10 +143,10 @@
     <details>
     <summary><strong>Simpson’s 1/3rd Rule</strong></summary>
 
-    - [Theory](#simpsons-13th-rule-theory)
-    - [Code](#simpsons-13th-rule-code)
-    - [Input](#simpsons-13th-rule-input)
-    - [Output](#simpsons-13th-rule-output)
+    - [Theory](#simpsons-13rd-rule-theory)
+    - [Code](#simpsons-13rd-rule-code)
+    - [Input](#simpsons-13rd-rule-input)
+    - [Output](#simpsons-13rd-rule-output)
 
     </details>
 
