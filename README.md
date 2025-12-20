@@ -254,12 +254,9 @@ The application allows users to select a numerical method from a menu, provide n
 #### Gauss Elimination Theory
 
 
-Gauss Elimination is a direct numerical method used to solve a system of linear equations.  
-The method transforms the system into an **upper triangular matrix** using **forward elimination**, after which the unknown variables are calculated using **back substitution**.
+Gauss Elimination is a direct numerical method used to solve a system of linear equations. This method transforms the system into an **upper triangular matrix** using **forward elimination**, after which the unknown variables are calculated using **back substitution**.
 
-
-
-## Mathematical Representation
+**Gauss Elimination Procedure :**
 
 A system of `n` linear equations with `n` unknowns can be written as:
 
@@ -286,12 +283,9 @@ a_{n1} & a_{n2} & \cdots & a_{nn} & b_n
 $$
 
 
+**Forward Elimination**: Transform the matrix into an **upper triangular form** by eliminating the lower triangular entries using row operations.
 
-**Gauss Elimination Procedure**
-
-1. **Forward Elimination**: Transform the matrix into an **upper triangular form** by eliminating the lower triangular entries using row operations.
-
-2. **Back Substitution**: After obtaining the upper triangular matrix, solve for the unknowns starting from the last equation upwards.
+**Back Substitution**: After obtaining the upper triangular matrix, solve for the unknowns starting from the last equation upwards.
 
 After forward elimination, the matrix looks like:
 
@@ -306,9 +300,8 @@ a_{11} & a_{12} & \cdots & a_{1n} & b_1 \\
 \right]
 $$
 
----
 
-**Input Characteristics**
+**Input Characteristics :**
 
 - The first line contains an integer $$n$$, the number of equations.
 - The next $$n$$ lines contain $$n+1$$ real numbers each.
@@ -326,7 +319,7 @@ $$
 
 
 
-**Output Characteristics**
+**Output Characteristics :**
 
 - The **initial augmented matrix** is displayed.
 - The **matrix after each elimination step** is printed.
