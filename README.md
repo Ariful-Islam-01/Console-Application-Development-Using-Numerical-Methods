@@ -252,6 +252,7 @@ All interactions are performed via input and output file.
 - **Development Environment:** Code::Blocks / VS Code  
 - **Platform:** Windows / Linux  
 
+[⬆](#table-of-contents)
 ---
 
 ## Methods Implemented
