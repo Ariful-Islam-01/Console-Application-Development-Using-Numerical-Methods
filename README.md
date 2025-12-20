@@ -1558,10 +1558,10 @@ The Secant Method typically converges faster than the Bisection Method, although
 
 **Input Characteristics**
 
-1. The first line contains two real numbers:
+1. The first line contains two real numbers for interval :
 
 $$
-x_0 \;\ x_1
+L \;\ R
 $$
 
 representing the two initial guesses.
@@ -1699,10 +1699,10 @@ The Newton-Raphson Method typically converges faster than the Bisection or Secan
 
 ## Input Characteristics
 
-1. The first line contains the **initial guess**:
+1. The first line contains the tro integer as interval and first integer treat as initial guess:
 
 $$
-x_0
+L \;\ R
 $$
 
 2. The second line contains the **allowed error (tolerance)**:
