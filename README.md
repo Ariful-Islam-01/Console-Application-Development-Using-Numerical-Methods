@@ -5,225 +5,216 @@
 
 ## 📌 Table of Contents
 
-<details>
-<summary><strong>Project Overview</strong></summary>
-  
-- [Introduction](#introduction)
+
 - [Project Overview](#project-overview)
-- [Structure of Each Method](#structure-of-each-method)
-- [Execution Flow](#execution-flow)
-- [Input and Output Format](#input-and-output-format)
-- [Technologies Used](#technologies-used)
+
+- [Methods Implemented](#methods-implemented)
+
+  - **[Solution of Linear Equations](#solution-of-linear-equations)**
+
+    <details>
+    <summary><strong>Gauss Elimination Method</strong></summary>
+
+    - [Theory](#gauss-elimination-theory)
+    - [Code](#gauss-elimination-code)
+    - [Input](#gauss-elimination-input)
+    - [Output](#gauss-elimination-output)
+
+    </details>
+
+    <details>
+    <summary><strong>Gauss Jordan Elimination Method</strong></summary>
+
+    - [Theory](#gauss-jordan-theory)
+    - [Code](#gauss-jordan-code)
+    - [Input](#gauss-jordan-input)
+    - [Output](#gauss-jordan-output)
+
+    </details>
+
+    <details>
+    <summary><strong>LU Decomposition Method</strong></summary>
+
+    - [Theory](#lu-decomposition-theory)
+    - [Code](#lu-decomposition-code)
+    - [Input](#lu-decomposition-input)
+    - [Output](#lu-decomposition-output)
+
+    </details>
+
+    <details>
+    <summary><strong>Matrix Inversion Method</strong></summary>
+
+    - [Theory](#matrix-inversion-theory)
+    - [Code](#matrix-inversion-code)
+    - [Input](#matrix-inversion-input)
+    - [Output](#matrix-inversion-output)
+
+    </details>
+
+  - **[Solution of Non-linear Equations](#solution-of-non-linear-equations)**
+
+    <details>
+    <summary><strong>Bisection Method</strong></summary>
+
+    - [Theory](#bisection-theory)
+    - [Code](#bisection-code)
+    - [Input](#bisection-input)
+    - [Output](#bisection-output)
+
+    </details>
+
+    <details>
+    <summary><strong>False Position Method</strong></summary>
+
+    - [Theory](#false-position-theory)
+    - [Code](#false-position-code)
+    - [Input](#false-position-input)
+    - [Output](#false-position-output)
+
+    </details>
+
+    <details>
+    <summary><strong>Secant Method</strong></summary>
+
+    - [Theory](#secant-theory)
+    - [Code](#secant-code)
+    - [Input](#secant-input)
+    - [Output](#secant-output)
+
+    </details>
+
+    <details>
+    <summary><strong>Newton-Raphson Method</strong></summary>
+
+    - [Theory](#newton-raphson-theory)
+    - [Code](#newton-raphson-code)
+    - [Input](#newton-raphson-input)
+    - [Output](#newton-raphson-output)
+
+    </details>
+
+  - **[Solution of Differential Equations](#solution-of-differential-equations)**
+
+    <details>
+    <summary><strong>Runge-Kutta Method</strong></summary>
+
+    - [Theory](#runge-kutta-theory)
+    - [Code](#runge-kutta-code)
+    - [Input](#runge-kutta-input)
+    - [Output](#runge-kutta-output)
+
+    </details>
+
+  - **[Interpolation and Approximation](#interpolation-and-approximation)**
+
+    <details>
+    <summary><strong>Newton Forward Interpolation</strong></summary>
+
+    - [Theory](#newton-forward-theory)
+    - [Code](#newton-forward-code)
+    - [Input](#newton-forward-input)
+    - [Output](#newton-forward-output)
+
+    </details>
+
+    <details>
+    <summary><strong>Newton Backward Interpolation</strong></summary>
+
+    - [Theory](#newton-backward-theory)
+    - [Code](#newton-backward-code)
+    - [Input](#newton-backward-input)
+    - [Output](#newton-backward-output)
+
+    </details>
+
+    <details>
+    <summary><strong>Newton Divided Difference Interpolation</strong></summary>
+
+    - [Theory](#newton-divided-theory)
+    - [Code](#newton-divided-code)
+    - [Input](#newton-divided-input)
+    - [Output](#newton-divided-output)
+
+    </details>
+
+  - **[Numerical Integration](#numerical-integration)**
+
+    <details>
+    <summary><strong>Simpson’s 1/3rd Rule</strong></summary>
+
+    - [Theory](#simpson-one-third-theory)
+    - [Code](#simpson-one-third-code)
+    - [Input](#simpson-one-third-input)
+    - [Output](#simpson-one-third-output)
+
+    </details>
+
+    <details>
+    <summary><strong>Simpson’s 3/8th Rule</strong></summary>
+
+    - [Theory](#simpson-three-eighth-theory)
+    - [Code](#simpson-three-eighth-code)
+    - [Input](#simpson-three-eighth-input)
+    - [Output](#simpson-three-eighth-output)
+
+    </details>
+
+  - **[Numerical Differentiation](#numerical-differentiation)**
+
+    <details>
+    <summary><strong>Forward Interpolation Differentiation</strong></summary>
+
+    - [Theory](#forward-diff-theory)
+    - [Code](#forward-diff-code)
+    - [Input](#forward-diff-input)
+    - [Output](#forward-diff-output)
+
+    </details>
+
+    <details>
+    <summary><strong>Backward Interpolation Differentiation</strong></summary>
+
+    - [Theory](#backward-diff-theory)
+    - [Code](#backward-diff-code)
+    - [Input](#backward-diff-input)
+    - [Output](#backward-diff-output)
+
+    </details>
+
+  - **[Curve Fitting Regression](#curve-fitting-regression)**
+
+    <details>
+    <summary><strong>Least Squares Regression (Linear)</strong></summary>
+
+    - [Theory](#ls-linear-theory)
+    - [Code](#ls-linear-code)
+    - [Input](#ls-linear-input)
+    - [Output](#ls-linear-output)
+
+    </details>
+
+    <details>
+    <summary><strong>Least Squares Regression (Transcendental)</strong></summary>
+
+    - [Theory](#ls-trans-theory)
+    - [Code](#ls-trans-code)
+    - [Input](#ls-trans-input)
+    - [Output](#ls-trans-output)
+
+    </details>
+
+    <details>
+    <summary><strong>Least Squares Regression (Polynomial)</strong></summary>
+
+    - [Theory](#ls-poly-theory)
+    - [Code](#ls-poly-code)
+    - [Input](#ls-poly-input)
+    - [Output](#ls-poly-output)
+
+    </details>
+    
 - [Contributors](#contributors)
-- [License](#license)
-
-</details>
-
-#### [Methods Implemented](#methods-implemented)
-
-- **[Solution of Linear Equations](#solution-of-linear-equations)**
-
-  <details>
-  <summary><strong>Gauss Elimination Method</strong></summary>
-
-  - [Theory](#gauss-elimination-theory)
-  - [Code](#gauss-elimination-code)
-  - [Input](#gauss-elimination-input)
-  - [Output](#gauss-elimination-output)
-
-  </details>
-
-  <details>
-  <summary><strong>Gauss Jordan Elimination Method</strong></summary>
-
-  - [Theory](#gauss-jordan-theory)
-  - [Code](#gauss-jordan-code)
-  - [Input](#gauss-jordan-input)
-  - [Output](#gauss-jordan-output)
-
-  </details>
-
-  <details>
-  <summary><strong>LU Decomposition Method</strong></summary>
-
-  - [Theory](#lu-decomposition-theory)
-  - [Code](#lu-decomposition-code)
-  - [Input](#lu-decomposition-input)
-  - [Output](#lu-decomposition-output)
-
-  </details>
-
-  <details>
-  <summary><strong>Matrix Inversion Method</strong></summary>
-
-  - [Theory](#matrix-inversion-theory)
-  - [Code](#matrix-inversion-code)
-  - [Input](#matrix-inversion-input)
-  - [Output](#matrix-inversion-output)
-
-  </details>
-
-- **[Solution of Non-linear Equations](#solution-of-non-linear-equations)**
-
-  <details>
-  <summary><strong>Bisection Method</strong></summary>
-
-  - [Theory](#bisection-theory)
-  - [Code](#bisection-code)
-  - [Input](#bisection-input)
-  - [Output](#bisection-output)
-
-  </details>
-
-  <details>
-  <summary><strong>False Position Method</strong></summary>
-
-  - [Theory](#false-position-theory)
-  - [Code](#false-position-code)
-  - [Input](#false-position-input)
-  - [Output](#false-position-output)
-
-  </details>
-
-  <details>
-  <summary><strong>Secant Method</strong></summary>
-
-  - [Theory](#secant-theory)
-  - [Code](#secant-code)
-  - [Input](#secant-input)
-  - [Output](#secant-output)
-
-  </details>
-
-  <details>
-  <summary><strong>Newton-Raphson Method</strong></summary>
-
-  - [Theory](#newton-raphson-theory)
-  - [Code](#newton-raphson-code)
-  - [Input](#newton-raphson-input)
-  - [Output](#newton-raphson-output)
-
-  </details>
-
-- **[Solution of Differential Equations](#solution-of-differential-equations)**
-
-  <details>
-  <summary><strong>Runge-Kutta Method</strong></summary>
-
-  - [Theory](#runge-kutta-theory)
-  - [Code](#runge-kutta-code)
-  - [Input](#runge-kutta-input)
-  - [Output](#runge-kutta-output)
-
-  </details>
-
-- **[Interpolation and Approximation](#interpolation-and-approximation)**
-
-  <details>
-  <summary><strong>Newton Forward Interpolation</strong></summary>
-
-  - [Theory](#newton-forward-theory)
-  - [Code](#newton-forward-code)
-  - [Input](#newton-forward-input)
-  - [Output](#newton-forward-output)
-
-  </details>
-
-  <details>
-  <summary><strong>Newton Backward Interpolation</strong></summary>
-
-  - [Theory](#newton-backward-theory)
-  - [Code](#newton-backward-code)
-  - [Input](#newton-backward-input)
-  - [Output](#newton-backward-output)
-
-  </details>
-
-  <details>
-  <summary><strong>Newton Divided Difference Interpolation</strong></summary>
-
-  - [Theory](#newton-divided-theory)
-  - [Code](#newton-divided-code)
-  - [Input](#newton-divided-input)
-  - [Output](#newton-divided-output)
-
-  </details>
-
-- **[Numerical Integration](#numerical-integration)**
-
-  <details>
-  <summary><strong>Simpson’s 1/3rd Rule</strong></summary>
-
-  - [Theory](#simpson-one-third-theory)
-  - [Code](#simpson-one-third-code)
-  - [Input](#simpson-one-third-input)
-  - [Output](#simpson-one-third-output)
-
-  </details>
-
-  <details>
-  <summary><strong>Simpson’s 3/8th Rule</strong></summary>
-
-  - [Theory](#simpson-three-eighth-theory)
-  - [Code](#simpson-three-eighth-code)
-  - [Input](#simpson-three-eighth-input)
-  - [Output](#simpson-three-eighth-output)
-
-  </details>
-
-- **[Numerical Differentiation](#numerical-differentiation)**
-
-  <details>
-  <summary><strong>Forward Interpolation Differentiation</strong></summary>
-
-  - [Theory](#forward-diff-theory)
-  - [Code](#forward-diff-code)
-  - [Input](#forward-diff-input)
-  - [Output](#forward-diff-output)
-
-  </details>
-
-  <details>
-  <summary><strong>Backward Interpolation Differentiation</strong></summary>
-
-  - [Theory](#backward-diff-theory)
-  - [Code](#backward-diff-code)
-  - [Input](#backward-diff-input)
-  - [Output](#backward-diff-output)
-
-  </details>
-
-- **[Curve Fitting Regression](#curve-fitting-regression)**
-
-  <details>
-  <summary><strong>Least Squares Regression (Linear)</strong></summary>
-
-  - [Theory](#ls-linear-theory)
-  - [Code](#ls-linear-code)
-  - [Input](#ls-linear-input)
-  - [Output](#ls-linear-output)
-
-  </details>
-
-  <details>
-  <summary><strong>Least Squares Regression (Transcendental)</strong></summary>
-
-  - [Theory](#ls-trans-theory)
-  - [Code](#ls-trans-code)
-  - [Input](#ls-trans-input)
-  - [Output](#ls-trans-output)
-
-  </details>
-
-  <details>
-  <summary><strong>Least Squares Regression (Polynomial)</strong></summary>
-
-  - [Theory](#ls-poly-theory)
-  - [Code](#ls-poly-code)
-  - [Input](#ls-poly-input)
-  - [Output](#ls-poly-output)
-
-  </details>
 
 ---
 
