@@ -3386,6 +3386,7 @@ For any given value \(x = x_0\), the predicted value of \(y\) is:
 $$
 y = ax_0^b
 $$
+
 **Input Characteristics**
 
 - First line contains an integer \(n\), the number of observed data points.
