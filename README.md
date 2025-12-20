@@ -661,18 +661,8 @@ It can be solved in two steps:
 
 - Solve $$L \cdot Y = B$$ for $$Y$$ using **forward substitution**:
 
-$$
-y_1 = b_1,\quad
-y_2 = b_2 - L_{21}y_1,\quad \dots,\quad
-y_n = b_n - \sum_{j=1}^{n-1} L_{nj} y_j
-$$
 
 - Solve $$U \cdot X = Y$$ for $$X$$ using **back substitution**:
-
-$$
-x_n = \frac{y_n}{U_{nn}},\quad
-x_{n-1} = \frac{y_{n-1} - U_{n-1,n} x_n}{U_{n-1,n-1}},\quad \dots
-$$
 
 
 
@@ -681,7 +671,7 @@ $$
 - The first line contains an integer \(t\), the number of test cases.
 - For each test case:
   - The first line contains an integer \(n\), the number of equations.
-  - The next \(n\) lines contain \(n\) real numbers followed by the RHS value (augmented matrix).
+  - The next \(n\) lines contain \(n+1\) real numbers followed by the RHS value (augmented matrix).
 
 The input can be represented as:
 
@@ -1276,11 +1266,9 @@ rate of convergence is relatively slow compared to other numerical methods.
      ```
      L R
      ```  
-   - Constraint on the interval:  
-     
-     -50 < L < R < 50
        
    - The function $f(x)$ **must change sign** in the interval $[L, R]$, i.e., $f(L) \cdot f(R) < 0$.
+- The second line contains the allowed error (tolerance)
 
 
 **Output Characteristics** 
@@ -1418,7 +1406,7 @@ $$
 |b - a| < \varepsilon
 $$
 
-where \( \varepsilon \) is the prescribed tolerance.
+where $$\( \varepsilon \)$$ is the prescribed tolerance.
 
 The Regular False Position Method is generally faster than the Bisection Method because it uses the function values to estimate the root, although in some cases convergence may be slower if one endpoint remains fixed.
 
@@ -1429,22 +1417,16 @@ The Regular False Position Method is generally faster than the Bisection Method 
 1. The first line contains two real numbers:
 
 $$
-L \;\; R
+L \ \  R
 $$
 
-2. Constraint on the interval:
-
-$$
--50 < L < 0 \quad \text{and} \quad 0 < R < 50
-$$
-
-3. The function \( f(x) \) **must change sign** in the interval \( [L, R] \):
+  - The function \( f(x) \) **must change sign** in the interval \( [L, R] \):
 
 $$
 f(L)\cdot f(R) < 0
 $$
 
-4. The second line contains the **allowed error (tolerance)**:
+2. The second line contains the **allowed error (tolerance)**:
 
 $$
 \varepsilon
@@ -1594,8 +1576,8 @@ $$
 
 **Output Characteristics**
 
-- The approximate root of the function is displayed.  
-- The number of iterations required to reach the tolerance can also be optionally shown.  
+- The approximate root of the function is displayed.
+  - For each root, the corresponding sub-interval and the approximate root value are shown.  
 
 ---
 
@@ -1655,7 +1637,8 @@ int main() {
 
 #### Secant Input
 ```
--10 10 0.0001
+-10 10
+0.0001
 ```
 
 #### Secant Output
@@ -1733,7 +1716,7 @@ $$
 ## Output Characteristics
 
 - The approximate root of the function is displayed.  
-- The number of iterations required to reach the tolerance can also be optionally shown.
+  - For each root, the corresponding sub-interval and the approximate root value are shown.
 
 ---
 
@@ -1795,7 +1778,8 @@ int main() {
 
 #### Newton-Raphson Input
 ```
--10 10 0.0001
+-10 10
+0.0001
 
 ```
 
