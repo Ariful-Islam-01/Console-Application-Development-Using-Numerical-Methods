@@ -143,20 +143,20 @@
     <details>
     <summary><strong>Simpson’s 1/3rd Rule</strong></summary>
 
-    - [Theory](#simpson-one-third-theory)
-    - [Code](#simpson-one-third-code)
-    - [Input](#simpson-one-third-input)
-    - [Output](#simpson-one-third-output)
+    - [Theory](#simpsons-13th-rule-theory)
+    - [Code](#simpsons-13th-rule-code)
+    - [Input](#simpsons-13th-rule-input)
+    - [Output](#simpsons-13th-rule-output)
 
     </details>
 
     <details>
     <summary><strong>Simpson’s 3/8th Rule</strong></summary>
 
-    - [Theory](#simpson-s-3-8th-rule-theory)
-    - [Code](#simpson-s-3-8th-rule-code)
-    - [Input](#simpson-s-3-8th-rule-input)
-    - [Output](#simpson-s-3-8th-rule-output)
+    - [Theory](#simpsons-38th-rule-theory)
+    - [Code](#simpsons-38th-rule-code)
+    - [Input](#simpsons-38th-rule-input)
+    - [Output](#simpsons-38th-rule-output)
 
     </details>
 
