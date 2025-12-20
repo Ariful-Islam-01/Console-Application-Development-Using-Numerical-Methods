@@ -226,7 +226,7 @@ The application demonstrates the practical implementation of fundamental numeric
 
 Each numerical method is presented in a structured manner including **theory, source code, sample input, and corresponding output**, ensuring both conceptual clarity and implementation understanding.
 
-#### Structure of Each Method :
+### Structure of Each Method :
 Each numerical method in the application consists of the following four components:
 
 1. **Theory** – Mathematical background and explanation  
@@ -234,19 +234,19 @@ Each numerical method in the application consists of the following four componen
 3. **Input** – User-provided data  
 4. **Output** – Computed numerical result  
 
-#### Execution Flow :
+### Execution Flow :
 
 1. User provides required inputs from input file
 2. Algorithm executes
 3. Output is stored in the output file   
 
-#### Input and Output Format :
+### Input and Output Format :
 - **Input:** Numerical values, matrices, initial guesses, step size, or data points  
 - **Output:** Approximate solution and final result  
 
 All interactions are performed via input and output file.
 
-#### Technologies Used :
+### Technologies Used :
 - **Programming Language:** C / C++  
 - **Compiler:** GCC / g++  
 - **Development Environment:** Code::Blocks / VS Code  
@@ -297,7 +297,7 @@ $$
 **Back Substitution:** After obtaining the upper triangular matrix, solve for the unknowns starting from the last equation upwards.
 
 
-**Input Characteristics:**
+**Input Format :**
 
 - The first line contains an integer $$n$$, the number of equations.
 - The next $$n$$ lines contain $$n+1$$ real numbers each.
@@ -315,7 +315,7 @@ $$
 
 
 
-**Output Characteristics :**
+**Output Format :**
 
 - The **initial augmented matrix** is displayed.
 - The **matrix after each elimination step** is printed.
@@ -324,7 +324,6 @@ $$
 $$
 x_1 = value,\quad x_2 = value,\quad \ldots,\quad x_n = value
 $$
-
 
 
 #### Gauss Elimination Code
