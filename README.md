@@ -1847,6 +1847,23 @@ $$
 x_{n+1} = x_n + h
 $$
 
+**Input format**
+
+- The first line contains **4 real numbers**:  
+  - **x0** → initial value of x  
+  - **y0** → initial value of y (y(x0))  
+  - **xf** → final value of x (end of interval)  
+  - **h** → step size  
+- Represents solving the differential equation **dy/dx = f(x, y)** using **Runge-Kutta 4th order method** from **x0** to **xf**.
+
+ **Output Format**
+ 
+ - For **each step**, the program prints:  
+  - Step number  
+  - Values of **k1, k2, k3, k4**  
+  - Updated value of **y** at the new **x**  
+- Values are formatted with **6 decimal places**.  
+- Steps continue until **x ≥ xf**.
 ---
 
 #### Runge-Kutta Code
