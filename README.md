@@ -218,25 +218,43 @@
 
 ---
 
-## 📖 Introduction
-This project is a **console-based numerical methods application** developed as part of an academic group project under the **Department of Computer Science and Engineering (CSE)**.  
-The application demonstrates the practical implementation of fundamental numerical techniques used to solve linear and non-linear equations, differential equations, interpolation, numerical integration, numerical differentiation, and curve fitting problems.
+## Project Overview
+
+This project is a **Console-Based Numerical Methods Application** developed as part of an academic group project under the **Department of Computer Science and Engineering (CSE), KUET**.  
+
+The application demonstrates the practical implementation of fundamental numerical techniques used to solve **linear and non-linear equations, differential equations, interpolation, numerical integration, numerical differentiation, and curve fitting problems**.
 
 Each numerical method is presented in a structured manner including **theory, source code, sample input, and corresponding output**, ensuring both conceptual clarity and implementation understanding.
 
+#### Structure of Each Method :
+Each numerical method in the application consists of the following four components:
+
+1. **Theory** – Mathematical background and explanation  
+2. **Code** – Algorithmic implementation  
+3. **Input** – User-provided data  
+4. **Output** – Computed numerical result  
+
+#### Execution Flow :
+
+1. User provides required inputs from input file
+2. Algorithm executes
+3. Output is stored in the output file   
+
+#### Input and Output Format :
+- **Input:** Numerical values, matrices, initial guesses, step size, or data points  
+- **Output:** Approximate solution and final result  
+
+All interactions are performed via input and output file.
+
+#### Technologies Used :
+- **Programming Language:** C / C++  
+- **Compiler:** GCC / g++  
+- **Development Environment:** Code::Blocks / VS Code  
+- **Platform:** Windows / Linux  
+
 ---
 
-## 🔍 Project Overview
-- **Project Type:** Academic Group Project  
-- **Application Type:** Console-based Application  
-- **Domain:** Numerical Methods  
-- **Group Members:** 3  
-
-The application allows users to select a numerical method from a menu, provide necessary inputs, and obtain numerical results.
-
----
-
-## 🧮 Methods Implemented
+## Methods Implemented
 
 ### Solution of Linear Equations
 
@@ -3569,51 +3587,11 @@ y = 3 + 2x^1 + 1x^2
 
 ---
 
-## 🧩 Structure of Each Method
-Each numerical method in the application consists of the following four components:
+## Contributors
+This project was developed by :
 
-1. **Theory** – Mathematical background and explanation  
-2. **Code** – Algorithmic implementation  
-3. **Input** – User-provided data  
-4. **Output** – Computed numerical result  
-
----
-
-## 🔄 Execution Flow
-1. 
-2.   
-3.   
-4.   
+- SK. NAZMUS SALEHIN NIROB – Roll : 2207045
+- A. R. M. Ariful Islam – Roll : 2207046
+- PRIOM SARKAR – Roll : 2207048
 
 ---
-
-## ⌨ Input and Output Format
-- **Input:** Numerical values, matrices, initial guesses, step size, or data points  
-- **Output:** Approximate solution and final result  
-
-All interactions are performed via the console.
-
----
-
-## 🛠 Technologies Used
-- **Programming Language:** C / C++  
-- **Compiler:** GCC / g++  
-- **Development Environment:** Code::Blocks / VS Code  
-- **Platform:** Windows / Linux  
-
----
-
-## 👥 Contributors
-This project was developed by a group of **three students**:
-
-- Member 1 – Roll No:  2207045
-- Member 2 – Roll No:  2207046
-- Member 3 – Roll No:  2207048
-
----
-
-## 📜 License
-This project is intended **strictly for academic and educational purposes**.  
-Unauthorized commercial use is prohibited.
-
-© 2025 Department of Computer Science and Engineering
