@@ -2042,7 +2042,7 @@ $$
 y(x) = y_0+ u \Delta y_0+ \frac{u(u-1)}{2!} \Delta^2 y_0+ \frac{u(u-1)(u-2)}{3!} \Delta^3 y_0+ \cdots
 $$
 
-**Input Characteristics:**
+**Input Format**
 
 The input starts with an integer $n$ - the number of variable $x$ and $y$.
 
@@ -2052,7 +2052,7 @@ The third line contains $n$ integers $y_i$ for $1\le i \le n$.
 
 The final line contains the value of $x$ for which the interpolated value is to be determined.
 
-**Output Characteristics:**
+**Output Format:**
 
 Firstly, the output shows the Forward Difference Table.
 
@@ -2208,7 +2208,7 @@ $$
 y(x) = y_n+ u \nabla y_n+ \frac{u(u+1)}{2!} \nabla^2 y_n+ \frac{u(u+1)(u+2)}{3!} \nabla^3 y_n+ \cdots
 $$
 
-**Input Characteristics:**
+**Input Format**
 
 The input starts with an integer $n$ - the number of variable $x$ and $y$.
 
@@ -2218,7 +2218,7 @@ The third line contains $n$ integers $y_i$ for $1\le i \le n$.
 
 The final line contains the value of $x$ for which the interpolated value is to be determined.
 
-**Output Characteristics:**
+**Output Format:**
 
 Firstly, the output shows the Backward Difference Table.
 
@@ -2355,7 +2355,7 @@ $$
 
 This method is suitable for interpolation when the data points are unequally spaced and provides a flexible way to construct the interpolating polynomial.
 
-**Input Characteristics:**
+**Input Format**
 
 The input starts with an integer $n$ - the number of variable $x$ and $y$.
 
@@ -2365,7 +2365,7 @@ The third line contains $n$ integers $y_i$ for $1\le i \le n$.
 
 The final line contains the value of $x$ for which the interpolated value is to be determined.
 
-**Output Characteristics:**
+**Output Format:**
 
 Firstly, the output shows the Divided Difference Table.
 
@@ -2482,11 +2482,11 @@ $$
 
 This method is applicable when the function is continuous and smooth over the interval of integration and the number of subintervals is even.
 
-**Input Characteristics:**
+**Input Format**
 
 Input is taken by a single line containing 3 integers : $a,b,n$ - lower limit, upper limit & number of intervals.
 
-**Output Characteristics:**
+**Output Format**
 
 In the output, the function is shown.
 
@@ -2593,11 +2593,11 @@ $$
 
 This method is applicable when the function is continuous and smooth over the interval of integration and the number of subintervals is a multiple of three.
 
-**Input Characteristics:**
+**Input Format**
 
 Input is taken by a single line containing 3 integers : $a,b,n$ - lower limit, upper limit & number of intervals.
 
-**Output Characteristics:**
+**Output Format**
 
 In the output, the function is shown.
 
@@ -2737,12 +2737,12 @@ $$
 **Relative Error (%)** = |Exact Value − Numerical Value| / |Exact Value| × 100
 
 
-**Input Characteristics**
+**Input Format**
 
 Input is taken by a single line containing 4 integers : $upperLimit, lowerLimit, n, p$ - upper limit, lower limit, number of subintervals, point at which derivatives are to be evaluated.
 
 
-**Output Characteristics**
+**Output Format**
 
 The output includes:
 
@@ -2928,11 +2928,11 @@ $$
 $$
 
 
-**Input Characteristics**
+**Input Format**
 
 Input is taken by a single line containing 4 integers : $upperLimit, lowerLimit, n, p$ - upper limit, lower limit, number of subintervals, point at which derivatives are to be evaluated.
 
-**Output Characteristics**
+**Output Format**
 
 The output includes:
 
@@ -3118,7 +3118,7 @@ $$
 This equation can be used to estimate the value of \(y\) for any given value of \(x\).
 
 
-**Input Characteristics**
+**Input Format**
 
 - First line contains an integer \(n\), the number of observations.
 - Second line contains \(n\) real values representing the independent variable \(x\).
@@ -3130,7 +3130,7 @@ y = a + bx_0
 $$
 
 
-**Output Characteristics**
+**Output Format**
 
 
 - Displays the general form of the linear regression equation.
@@ -3302,7 +3302,7 @@ $$
 y = ax^b
 $$
 
-**Input Characteristics**
+**Input Format**
 
 - First line contains an integer \(n\), the number of observed data points.
 - Second line contains \(n\) positive real values representing the independent variable \(x\).
@@ -3313,7 +3313,7 @@ $$
 y = ax_0^b
 $$
 
-**Output Characteristics**
+**Output Format**
 
 - Displays the general form of the transcendental (power) equation.
 - Prints the estimated value of \(y\) for a fixed value of \(x\).
@@ -3448,7 +3448,7 @@ where
 - \(A\) contains the sums of powers of \(x\)  
 - \(B\) contains the sums of products of \(x^k y\)
 
-**Input Characteristics**
+**Input Format**
 
 - First line contains two integers:
   - \(n\): number of data points  
@@ -3456,7 +3456,7 @@ where
 - Second line contains \(n\) real values representing \(x\)
 - Third line contains \(n\) real values representing \(y\)
 
-**Output Characteristics**
+**Output Format**
 
 - Displays the number of data points and polynomial degree
 - Prints the augmented normal equation matrix
