@@ -2068,6 +2068,8 @@ Firstly, the output shows the Forward Difference Table.
 
 Secondly, the interpolated value of $y$ is displayed.
 
+[⬆](#table-of-contents)
+
 #### Newton Forward Interpolation Code
 ```cpp
 #include <bits/stdc++.h>
@@ -2144,6 +2146,8 @@ int main(){
 }
 ```
 
+[⬆](#table-of-contents)
+
 #### Newton Forward Interpolation Input
 
 ```
@@ -2153,6 +2157,7 @@ int main(){
 4
 ```
 
+[⬆](#table-of-contents)
 
 #### Newton Forward Interpolation Output
 ```
@@ -2166,7 +2171,7 @@ Forward Difference Table:
 Interpolated value at x = 4 is 165
 ```
 
-
+[⬆](#table-of-contents)
 
 ---
 ### Newton Backward Interpolation
@@ -2233,6 +2238,8 @@ The final line contains the value of $x$ for which the interpolated value is to 
 Firstly, the output shows the Backward Difference Table.
 
 Secondly, the interpolated value of $y$ is displayed.
+
+[⬆](#table-of-contents)
 
 #### Newton Backward Interpolation Code
 ```cpp
@@ -2307,6 +2314,8 @@ int main(){
 }
 ```
 
+[⬆](#table-of-contents)
+
 #### Newton Backward Interpolation Input
 ```
 5
@@ -2314,6 +2323,8 @@ int main(){
 28.06 30.19 32.75 34.94 40
 33
 ```
+
+[⬆](#table-of-contents)
 
 #### Newton Backward Interpolation Output
 ```
@@ -2327,6 +2338,8 @@ Backward Difference Table:
 
 Interpolated value at x = 33 is 33.2747
 ```
+
+[⬆](#table-of-contents)
 
 ---
 ### Newton Divided Difference Interpolation
@@ -2380,6 +2393,8 @@ The final line contains the value of $x$ for which the interpolated value is to 
 Firstly, the output shows the Divided Difference Table.
 
 Secondly, the interpolated value of $y$ is displayed.
+
+[⬆](#table-of-contents)
 
 #### Newton Divided Difference Interpolation Code
 ```cpp
@@ -2443,6 +2458,8 @@ int main() {
 }
 ```
 
+[⬆](#table-of-contents)
+
 #### Newton Divided Difference Interpolation Input
 ```
 4
@@ -2450,6 +2467,8 @@ int main() {
 0 1.386294 1.79175 1.609438
 2
 ```
+
+[⬆](#table-of-contents)
 
 #### Newton Divided Difference Interpolation Output
 ```
@@ -2462,6 +2481,8 @@ Divided Difference Table:
 
 Interpolated value at x = 2 is 0.628762
 ```
+
+[⬆](#table-of-contents)
 
 ---
 
@@ -2503,6 +2524,8 @@ In the output, the function is shown.
 Then the upper limit, lower limit & number of intervals are shown.
 
 At last, the integral value is shown.
+
+[⬆](#table-of-contents)
 
 #### Simpson’s 1/3rd Rule Code
 ```cpp
@@ -2564,10 +2587,14 @@ int main() {
 }
 ```
 
+[⬆](#table-of-contents)
+
 #### Simpson’s 1/3rd Rule Input
 ```
 0 1 4
 ```
+
+[⬆](#table-of-contents)
 
 #### Simpson’s 1/3rd Rule Output
 ```
@@ -2577,6 +2604,8 @@ where, lower limit = 0 , upper limit = 1 , Number of intervals = 4
 
 The value of integral: 0.785392
 ```
+
+[⬆](#table-of-contents)
 
 ---
 ### Simpson’s 3/8th Rule Method
@@ -2615,6 +2644,7 @@ Then the upper limit, lower limit & number of intervals are shown.
 
 At last, the integral value is shown.
 
+[⬆](#table-of-contents)
 
 #### Simpson’s 3/8th Rule Code
 ```cpp
@@ -2676,10 +2706,14 @@ int main() {
 }
 ```
 
+[⬆](#table-of-contents)
+
 #### Simpson’s 3/8th Rule Input
 ```
 0 4.5 9
 ```
+
+[⬆](#table-of-contents)
 
 #### Simpson’s 3/8th Rule Output
 ```
@@ -2689,6 +2723,8 @@ where, lower limit = 0 , upper limit = 4.5 , Number of intervals = 9
 
 The value of integral: 6.32902
 ```
+
+[⬆](#table-of-contents)
 
 ---
 
@@ -2762,6 +2798,7 @@ The output includes:
 4. Relative error of the first derivative  
 5. Relative error of the second derivative 
 
+[⬆](#table-of-contents)
 
 #### Differentiation using Forward Interpolation Code
 ```cpp
@@ -2842,13 +2879,16 @@ int main() {
     fout.close();
     return 0;
 }
-
 ```
+
+[⬆](#table-of-contents)
 
 #### Differentiation using Forward Interpolation Input
 ```
 5 0 6 0.5
 ```
+
+[⬆](#table-of-contents)
 
 #### Differentiation using Forward Interpolation Output
 ```
@@ -2870,6 +2910,8 @@ The relative error of f'(p) = 0.000%
 The relative error of f''(p) = 0.000%
 
 ```
+
+[⬆](#table-of-contents)
 
 ---
 ### Differentiation using Backward Interpolation
@@ -2952,6 +2994,7 @@ The output includes:
 4. Relative error of the first derivative  
 5. Relative error of the second derivative
 
+[⬆](#table-of-contents)
 
 #### Differentiation using Backward Interpolation Code
 ```cpp
@@ -3032,10 +3075,14 @@ int main() {
 }
 ```
 
+[⬆](#table-of-contents)
+
 #### Differentiation using Backward Interpolation Input
 ```
 5 0 15 4.5
 ```
+
+[⬆](#table-of-contents)
 
 #### Differentiation using Backward Interpolation Output
 ```
@@ -3065,6 +3112,8 @@ The relative error of f'(p) = 5.023%
 The relative error of f''(p) = 17.384%
 ```
 
+[⬆](#table-of-contents)
+
 ---
 
 ### Curve Fitting Regression 
@@ -3085,12 +3134,9 @@ where
 - \(a\) is the intercept of the regression line  
 - \(b\) is the slope of the regression line  
 
-
-
 **Principle of Least Squares**
 
 The method is based on the **principle of least squares**, which states that the best-fit line is the one that minimizes the sum of the squares of the vertical deviations (errors) between the observed values and the values predicted by the line.
-
 
 **Mathematical Formulation**
 
@@ -3115,8 +3161,6 @@ $$
 a = \frac{\sum y_i - b\sum x_i}{n}
 $$
 
-
-
 **Regression Line**
 
 After calculating \(a\) and \(b\), the regression equation becomes:
@@ -3126,7 +3170,6 @@ y = a + bx
 $$
 
 This equation can be used to estimate the value of \(y\) for any given value of \(x\).
-
 
 **Input Format**
 
@@ -3139,14 +3182,13 @@ $$
 y = a + bx_0
 $$
 
-
 **Output Format**
-
 
 - Displays the general form of the linear regression equation.
 - Prints the predicted value of \(y\) for a fixed value of \(x\).
 - Prints the regression line with coefficients rounded to two decimal places.
 
+[⬆](#table-of-contents)
 
 #### Least Squares Regression (Linear) Code
 ```cpp
@@ -3207,14 +3249,16 @@ int main()
 
 ```
 
+[⬆](#table-of-contents)
+
 #### Least Squares Regression (Linear) Input
 ```
-
 5
 1 2 3 4 5
 2 3 5 4 6
-
 ```
+
+[⬆](#table-of-contents)
 
 #### Least Squares Regression (Linear) Output
 ```
@@ -3226,6 +3270,8 @@ for x = 6, y is 6.7
 Regression Line is: y = 1.30 + 0.90x
 
 ```
+
+[⬆](#table-of-contents)
 
 ---
 ### Least Squares Regression (Transcendental) Method
@@ -3242,8 +3288,6 @@ where
 - \(x\) is the independent variable  
 - \(y\) is the dependent variable  
 - \(a\) and \(b\) are constants to be determined  
-
-
 
 **Linearization of the Model**
 
@@ -3266,8 +3310,6 @@ Y = A + bX
 $$
 
 This transformed equation can be solved using the **Least Squares Method**.
-
-
 
 **Least Squares Formulation**
 
@@ -3329,6 +3371,7 @@ $$
 - Prints the estimated value of \(y\) for a fixed value of \(x\).
 - Prints the fitted regression curve with coefficients rounded to two decimal places.
 
+[⬆](#table-of-contents)
 
 #### Least Squares Regression (Transcendental) Code
 ```cpp
@@ -3388,6 +3431,8 @@ int main()
 }
 ```
 
+[⬆](#table-of-contents)
+
 #### Least Squares Regression (Transcendental) Input
 ```
 5
@@ -3395,6 +3440,8 @@ int main()
 3 4.5 7.8 10.2 14.5
 
 ```
+
+[⬆](#table-of-contents)
 
 #### Least Squares Regression (Transcendental) Output
 ```
@@ -3407,11 +3454,12 @@ Regression Line is: y = 2.70x^(0.98)
 
 ```
 
+[⬆](#table-of-contents)
+
 ---
 ### Least Squares Regression (Polynomial) Method
 
 #### Least Squares Regression (Polynomial) Theory
-
 
 Polynomial Regression is a numerical technique used to fit a polynomial curve to a given set of data points. It extends simple linear regression by allowing higher-degree polynomial relationships between variables.
 
@@ -3472,6 +3520,7 @@ where
 - Prints the augmented normal equation matrix
 - Displays the fitted polynomial regression equation
 
+[⬆](#table-of-contents)
 
 #### Least Squares Regression (Polynomial) Code
 ```cpp
@@ -3569,6 +3618,8 @@ int main(){
 }
 ```
 
+[⬆](#table-of-contents)
+
 #### Least Squares Regression (Polynomial) Input
 ```
 5 2
@@ -3576,6 +3627,8 @@ int main(){
 6 11 18 27 38
 
 ```
+
+[⬆](#table-of-contents)
 
 #### Least Squares Regression (Polynomial) Output
 ```
@@ -3594,6 +3647,8 @@ y = 3 + 2x^1 + 1x^2
 
 ```
 
+[⬆](#table-of-contents)
+
 ---
 
 ## Contributors
@@ -3602,5 +3657,7 @@ This project was developed by :
 - SK. NAZMUS SALEHIN NIROB – Roll : 2207045
 - A. R. M. Ariful Islam – Roll : 2207046
 - PRIOM SARKAR – Roll : 2207048
+
+[⬆](#table-of-contents)
 
 ---
