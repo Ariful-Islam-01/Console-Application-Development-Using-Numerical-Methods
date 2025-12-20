@@ -207,10 +207,10 @@
     <details>
     <summary><strong>Least Squares Regression (Polynomial)</strong></summary>
 
-    - [Theory](#least-squares-regression-(polynomial)-theory)
-    - [Code](#least-squares-regression-(polynomial)-code)
-    - [Input](#least-squares-regression-(polynomial)-input)
-    - [Output](#least-squares-regression-(polynomial)-output)
+    - [Theory](#least-squares-regression-polynomial-theory)
+    - [Code](#least-squares-regression-polynomial-code)
+    - [Input](#least-squares-regression-polynomial-input)
+    - [Output](#least-squares-regression-polynomial-output)
 
     </details>
     
