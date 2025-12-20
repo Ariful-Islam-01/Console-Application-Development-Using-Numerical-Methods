@@ -631,7 +631,6 @@ x3 = -1.000000
 ### LU Decomposition Method
 
 #### LU Decomposition Theory
-# LU Factorization Method
 
 LU Factorization (or LU Decomposition) is a numerical technique used to solve a system of linear equations.  
 It decomposes a square matrix $$A$$ into the product of a **Lower triangular matrix** $$L$$ and an **Upper triangular matrix** $$U$$, such that:
@@ -646,7 +645,7 @@ $$
 A \cdot X = B
 $$
 
-can be solved in two steps:
+It can be solved in two steps:
 
 1. Solve $$L \cdot Y = B$$ using **forward substitution**.
 2. Solve $$U \cdot X = Y$$ using **back substitution**.
@@ -763,7 +762,7 @@ void LUX(vector<vector<double>>& a, int n, vector<double>& b, ofstream &fout, in
     vector<vector<double>> u(n, vector<double>(n));
     vector<vector<double>> l(n, vector<double>(n, 0));
 
-    fout << "==== Test Case " << tc << " ====\n\n";
+    fout << "Test Case " << tc :<< "\n\n";
     fout << "Original Matrix A:\n";
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < n; j++)
@@ -838,7 +837,7 @@ void LUX(vector<vector<double>>& a, int n, vector<double>& b, ofstream &fout, in
             fout << x[i] << " ";
         fout << endl;
     }
-    fout << "==============================\n\n";
+    
 }
 
 int main() {
@@ -847,7 +846,7 @@ int main() {
     if(!fin || !fout) return 0;
 
     int t;
-    fin >> t; // number of test cases
+    fin >> t; 
     for(int tc = 1; tc <= t; tc++) {
         int n;
         fin >> n;
@@ -890,7 +889,7 @@ int main() {
 
 #### LU Decomposition Output
 ```
-==== Test Case 1 ====
+ Test Case 1 
 
 Original Matrix A:
 2 1 -1 
@@ -913,10 +912,9 @@ Y vector:
 1
 
 X vector (Solution):
-2 3 -1 
-==============================
+2 3 -1
 
-==== Test Case 2 ====
+ Test Case 2 
 
 Original Matrix A:
 1 2 -1 
@@ -939,9 +937,8 @@ Y vector:
 0
 
 Infinite solution
-==============================
 
-==== Test Case 3 ====
+ Test Case 3 
 
 Original Matrix A:
 1 2 -1 
@@ -964,8 +961,6 @@ Y vector:
 3
 
 No solution
-==============================
-
 
 ```
 
