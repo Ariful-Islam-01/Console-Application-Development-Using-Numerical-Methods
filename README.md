@@ -2671,117 +2671,69 @@ The value of integral: 6.32902
 
 #### Differentiation using Forward Interpolation Theory
 
-This C++ program calculates the **first and second derivatives** of a function at a given point using **Newton's Forward Interpolation Method**. It also generates the **forward difference table** and calculates **relative errors** compared to the exact derivatives.
+Forward interpolation–based differentiation is a numerical technique used to approximate the **first** and **second derivatives** of a function when the function values are known at **equally spaced points**.  
+This method is especially suitable when the point of differentiation lies **near the beginning of the data table**.
 
-**Function Used**
+**Step Size**
 
-$$
-f(x) = x^3 + 2x^2 + x + 1
-$$
-
-Derivatives:
+Let the tabulated values be equally spaced with step size:
 
 $$
-f'(x) = 3x^2 + 4x + 1
+h = x_{i+1} - x_i
 $$
 
-$$
-f''(x) = 6x + 4
-$$
-
-
-
-
-
-Newton's Forward Interpolation is used to estimate the value of an unknown variable `x` which is **less than the middle value** of the given data. This method is applicable when the difference between any two consecutive values of `x` is constant.
-
-Let the given data points be
+**Definition of \( u \)**
 
 $$
-x_0, x_1, \ldots, x_n
+u = \frac{p - x_0}{h}
 $$
 
-with corresponding values
+where  
+- \( p \) is the point at which differentiation is required  
+- \( x_0 \) is the first tabulated value  
 
-$$
-y_0, y_1, \ldots, y_n
-$$
-
-The data must satisfy the condition:
-
-$$
-x_i - x_{i-1} = h \quad \text{(constant)}, \quad 1 \le i \le n
-$$
-
-and the interpolation point should satisfy:
-
-$$
-x < \frac{x_0 + x_n}{2}
-$$
-
-The **forward difference** is defined as:
-
-$$
-\Delta y_i = y_{i+1} - y_i
-$$
-
-Higher order forward differences are:
-
-$$
-\Delta^2 y_i = \Delta(\Delta y_i)
-$$
-
-$$
-\Delta^3 y_i = \Delta(\Delta^2 y_i)
-$$
-
-and so on.
-
-Let
-
-$$
-u = \frac{x - x_0}{h}
-$$
-
-Then Newton's Forward Interpolation formula is given by:
+From Newton's Forward Interpolation formula :
 
 $$
 y(x) = y_0 + u \Delta y_0 + \frac{u(u-1)}{2!} \Delta^2 y_0 + \frac{u(u-1)(u-2)}{3!} \Delta^3 y_0 + \cdots
 $$
 
-**Derivatives using forward differences:**
+**First Derivative Formula**
 
-- First derivative:
-
-$$
-f'(p) = \frac{1}{h} \Big[\Delta y_0 + \frac{2u-1}{2}\Delta^2 y_0 + \frac{3u^2 - 6u + 2}{6}\Delta^3 y_0 + \dots \Big]
-$$
-
-- Second derivative:
+Using Newton’s Forward Interpolation Differentiation Formula, the first derivative at point \( p \) is:
 
 $$
-f''(p) = \frac{1}{h^2} \Big[\Delta^2 y_0 + (u-1)\Delta^3 y_0 + \dots \Big]
+f'(p) = \frac{1}{h} \left[\Delta y_0 + \frac{2u - 1}{2} \Delta^2 y_0 + \frac{3u^2 - 6u + 2}{6} \Delta^3 y_0 + \frac{4u^3 - 18u^2 + 14u - 6}{24} \Delta^4 y_0 + \cdots \right]
 $$
+
+
+**Second Derivative Formula**
+
+The second derivative at point \( p \) is given by:
+
+$$
+f''(p) = \frac{1}{h^2} \left[ \Delta^2 y_0 + (u - 1)\Delta^3 y_0 + \frac{12u^2 - 36u + 14}{24} \Delta^4 y_0 + \cdots \right]
+$$
+
+**Error Calculation**
+
+**Relative Error (%)** = |Exact Value − Numerical Value| / |Exact Value| × 100
+
 
 **Input Characteristics**
 
-The input starts with an integer `n` — the number of variables `x` and `y`.
-
-The second line contains `n` integers $$x_i$$ for $$1 \le i \le n$$.
-
-The third line contains `n` integers $$y_i$$ for $$1 \le i \le n$$.
-
-The final line contains the value of `x` for which the interpolated value is to be determined.
+Input is taken by a single line containing 4 integers : $upperLimit, lowerLimit, n, p$ - upper limit, lower limit, number of subintervals, point at which derivatives are to be evaluated.
 
 
 **Output Characteristics**
 
-1. Firstly, the output shows the **Forward Difference Table**.  
-2. Secondly, the **interpolated value of $$y$$** is displayed.
+The output includes:
 
-
-
-
+1. Forward difference table  
+2. Numerical value of the first derivative at point `p`  
+3. Numerical value of the second derivative at point `p`  
+4. Relative error of the first derivative  
+5. Relative error of the second derivative 
 
 
 #### Differentiation using Forward Interpolation Code
@@ -2897,116 +2849,81 @@ The relative error of f''(p) = 0.000%
 
 #### Differentiation using Backward Interpolation Theory
 
-This C++ program calculates the **first and second derivatives** of a function at a given point using **Newton's Backward Interpolation Method**. It also generates the **backward difference table** and calculates **relative errors** compared to the exact derivatives.
+Backward interpolation–based differentiation is a numerical technique used to approximate the **first** and **second derivatives** of a function when the function values are known at **equally spaced points**.  
+This method is especially suitable when the point of differentiation lies **near the end of the data table**.
 
-## Function Used
+The method is based on **Newton’s Backward Interpolation Formula**, which utilizes backward differences calculated from the last tabulated value.
 
-$$
-f(x) = x^3 + 2x^2 + x + 1
-$$
+**Step Size**
 
-Derivatives:
-
-$$
-f'(x) = 3x^2 + 4x + 1
-$$
+For equally spaced data points, the step size is defined as:
 
 $$
-f''(x) = 6x + 4
+h = x_i - x_{i-1}
+$$
+
+**Definition of \( v \)**
+
+$$
+v = \frac{p - x_n}{h}
+$$
+
+where  
+- \( p \) is the point at which differentiation is required  
+- \( x_n \) is the last tabulated value  
+
+**Newton’s Backward Interpolation Formula**
+
+The backward interpolation polynomial is given by:
+
+$$
+y(x) = y_n + v \nabla y_n + \frac{v(v+1)}{2!} \nabla^2 y_n + \frac{v(v+1)(v+2)}{3!} \nabla^3 y_n + \cdots
+$$
+
+where \( \nabla \) denotes the backward difference operator.
+
+**First Derivative Formula**
+
+The first derivative at point \( p \) is obtained by differentiating the backward interpolation polynomial:
+
+$$
+f'(p) = \frac{1}{h} \left[ \nabla y_n + \frac{2v + 1}{2} \nabla^2 y_n + \frac{3v^2 + 6v + 2}{6} \nabla^3 y_n + \frac{4v^3 + 18v^2 + 22v + 6}{24} \nabla^4 y_n + \cdots \right]
 $$
 
 
+**Second Derivative Formula**
 
-Newton's Backward Interpolation is used to estimate the value of an unknown variable `x` which is **greater than the middle value** of the given data. This method is applicable when the difference between any two consecutive values of `x` is constant.
-
-Let the given data points be
-
-$$
-x_0, x_1, \ldots, x_n
-$$
-
-with corresponding values
+The second derivative at point \( p \) is given by:
 
 $$
-y_0, y_1, \ldots, y_n
+f''(p) = \frac{1}{h^2} \left[ \nabla^2 y_n + (v + 1)\nabla^3 y_n + \frac{12v^2 + 36v + 22}{24} \nabla^4 y_n + \cdots \right]
 $$
 
-The data must satisfy the condition:
+**Error Calculation**
+
+The accuracy of the numerical derivatives is evaluated using **relative error**:
 
 $$
-x_i - x_{i-1} = h \quad \text{(constant)}, \quad 1 \le i \le n
+\text{Relative Error } =
+\frac{|\text{Exact Value} - \text{Numerical Value}|}
+{|\text{Exact Value}|}
+\times 100
 $$
-
-and the interpolation point should satisfy:
-
-$$
-x > \frac{x_0 + x_n}{2}
-$$
-
-The **backward difference** is defined as:
-
-$$
-\nabla y_i = y_i - y_{i-1}
-$$
-
-Higher order backward differences are:
-
-$$
-\nabla^2 y_i = \nabla(\nabla y_i)
-$$
-
-$$
-\nabla^3 y_i = \nabla(\nabla^2 y_i)
-$$
-
-and so on.
-
-Let
-
-$$
-u = \frac{x - x_n}{h}
-$$
-
-Then Newton's Backward Interpolation formula is given by:
-
-$$
-y(x) = y_n + u \nabla y_n + \frac{u(u+1)}{2!} \nabla^2 y_n + \frac{u(u+1)(u+2)}{3!} \nabla^3 y_n + \cdots
-$$
-
-**Derivatives using backward differences:**
-
-- First derivative:
-
-$$
-f'(p) = \frac{1}{h} \Big[\nabla y_n + \frac{2u+1}{2}\nabla^2 y_n + \frac{3u^2 + 6u + 2}{6}\nabla^3 y_n + \dots \Big]
-$$
-
-- Second derivative:
-
-$$
-f''(p) = \frac{1}{h^2} \Big[\nabla^2 y_n + (u+1)\nabla^3 y_n + \dots \Big]
-$$
-
 
 
 **Input Characteristics**
 
-The input starts with an integer `n` — the number of variables `x` and `y`.
-
-The second line contains `n` integers $$x_i$$ for $$1 \le i \le n$$.
-
-The third line contains `n` integers $$y_i$$ for $$1 \le i \le n$$.
-
-The final line contains the value of `x` for which the interpolated value is to be determined.
-
+Input is taken by a single line containing 4 integers : $upperLimit, lowerLimit, n, p$ - upper limit, lower limit, number of subintervals, point at which derivatives are to be evaluated.
 
 **Output Characteristics**
 
-1. Firstly, the output shows the **Backward Difference Table**.  
-2. Secondly, the **interpolated value of $$y$$** is displayed.
+The output includes:
 
-
-
+1. Backward difference table  
+2. Numerical value of the first derivative at point `p`  
+3. Numerical value of the second derivative at point `p`  
+4. Relative error of the first derivative  
+5. Relative error of the second derivative
 
 
 #### Differentiation using Backward Interpolation Code
