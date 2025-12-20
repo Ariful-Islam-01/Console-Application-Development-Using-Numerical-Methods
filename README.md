@@ -153,10 +153,10 @@
     <details>
     <summary><strong>Simpson’s 3/8th Rule</strong></summary>
 
-    - [Theory](#simpson’s-3/8th-rule-theory)
-    - [Code](#simpson’s-3/8th-rule-code)
-    - [Input](#simpson’s-3/8th-rule-input)
-    - [Output](#simpson’s-3/8th-rule-output)
+    - [Theory](#simpson’s-3-8th-rule-theory)
+    - [Code](#simpson’s-3-8th-rule-code)
+    - [Input](#simpson’s-3-8th-rule-input)
+    - [Output](#simpson’s-3-8th-rule-output)
 
     </details>
 
