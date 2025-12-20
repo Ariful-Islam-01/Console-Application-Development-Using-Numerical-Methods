@@ -253,6 +253,7 @@ All interactions are performed via input and output file.
 - **Platform:** Windows / Linux  
 
 [⬆](#table-of-contents)
+
 ---
 
 ## Methods Implemented
@@ -292,11 +293,9 @@ a_{n1} & a_{n2} & \cdots & a_{nn} & b_n
 \right]
 $$
 
-
 **Forward Elimination:** Transform the matrix into an **upper triangular form** by eliminating the lower triangular entries using row operations.
 
 **Back Substitution:** After obtaining the upper triangular matrix, solve for the unknowns starting from the last equation upwards.
-
 
 **Input Format :**
 
@@ -314,8 +313,6 @@ a_{n1}\ a_{n2}\ \cdots\ a_{nn}\ b_n
 \end{aligned}
 $$
 
-
-
 **Output Format :**
 
 - The **initial augmented matrix** is displayed.
@@ -326,6 +323,7 @@ $$
 x_1 = value,\quad x_2 = value,\quad \ldots,\quad x_n = value
 $$
 
+[⬆](#table-of-contents)
 
 #### Gauss Elimination Code
 ```cpp
@@ -399,6 +397,8 @@ int main() {
 
 ```
 
+[⬆](#table-of-contents)
+
 #### Gauss Elimination Input
 ```
 3
@@ -407,6 +407,8 @@ int main() {
 -2 1 2 -3
 
 ```
+
+[⬆](#table-of-contents)
 
 #### Gauss Elimination Output
 ```
@@ -437,6 +439,8 @@ x3 = -1
 
 ```
 
+[⬆](#table-of-contents)
+
 ---  
 ### Gauss Jordan Elimination Method
 
@@ -445,8 +449,6 @@ Gauss–Jordan Elimination is a numerical method used to solve a system of linea
 It converts the augmented matrix of the system into **Reduced Row Echelon Form (RREF)**,
 where the coefficient matrix becomes an identity matrix and the solution is obtained
 directly from the last column.
-
-
 
 **Mathematical Formulation**
 
@@ -474,8 +476,6 @@ a_{n1} & a_{n2} & \cdots & a_{nn} & b_n
 \right]
 $$
 
-
-
 **Gauss–Jordan Elimination Procedure**
 
 1. Select a non-zero pivot element in the current column.
@@ -497,7 +497,6 @@ $$
 \end{array}
 \right]
 $$
-
 
 **Input Format**
 
@@ -525,6 +524,7 @@ $$
 x_1 = value,\quad x_2 = value,\quad \ldots,\quad x_n = value
 $$
 
+[⬆](#table-of-contents)
 
 #### Gauss Jordan Code
 ```cpp
@@ -597,6 +597,8 @@ int main() {
 
 ```
 
+[⬆](#table-of-contents)
+
 #### Gauss Jordan Input
 ```
 3
@@ -605,6 +607,8 @@ int main() {
 -2 1 2 -3
 
 ```
+
+[⬆](#table-of-contents)
 
 #### Gauss Jordan Output
 ```
@@ -635,8 +639,9 @@ x3 = -1.000000
 
 ```
 
----
+[⬆](#table-of-contents)
 
+---
 ### LU Decomposition Method
 
 #### LU Decomposition Theory
@@ -682,8 +687,6 @@ It can be solved in two steps:
 
 - Solve $$U \cdot X = Y$$ for $$X$$ using **back substitution**:
 
-
-
 **Input Format**
 
 - The first line contains an integer \(t\), the number of test cases.
@@ -726,6 +729,7 @@ $$
 x_1 = value,\quad x_2 = value,\quad \ldots,\quad x_n = value
 $$
 
+[⬆](#table-of-contents)
 
 #### LU Decomposition Code
 ```cpp
@@ -842,6 +846,7 @@ int main() {
 }
 
 ```
+[⬆](#table-of-contents)
 
 #### LU Decomposition Input
 ```
@@ -860,6 +865,8 @@ int main() {
 -1 -2 1 0
 
 ```
+
+[⬆](#table-of-contents)
 
 #### LU Decomposition Output
 ```
@@ -938,6 +945,8 @@ No solution
 
 ```
 
+[⬆](#table-of-contents)
+
 ---  
 ### Matrix Inversion
 
@@ -959,8 +968,6 @@ $$
 X = A^{-1} \cdot B
 $$
 
-
-
 **Condition for Inverse**
 
 The inverse of a square matrix exists only if its determinant is non-zero:
@@ -971,8 +978,6 @@ $$
 
 If $$\det(A) = 0$$, the matrix is singular and the system has either **no solution** or **infinitely many solutions**.
 
-
-
 **Determinant**
 
 The determinant of a matrix is calculated using cofactor expansion:
@@ -980,8 +985,6 @@ The determinant of a matrix is calculated using cofactor expansion:
 $$
 \det(A) = \sum_{j=1}^{n} (-1)^{1+j} a_{1j} \cdot \det(M_{1j})
 $$
-
-
 
 **Cofactor**
 
@@ -991,8 +994,6 @@ $$
 C_{ij} = (-1)^{i+j} \cdot \det(M_{ij})
 $$
 
-
-
 **Adjoint Matrix**
 
 The adjoint of a matrix is the transpose of the cofactor matrix:
@@ -1001,8 +1002,6 @@ $$
 \text{adj}(A) = [C_{ij}]^T
 $$
 
-
-
 **Inverse Matrix**
 
 The inverse of matrix \(A\) is given by:
@@ -1010,8 +1009,6 @@ The inverse of matrix \(A\) is given by:
 $$
 A^{-1} = \frac{1}{\det(A)} \cdot \text{adj}(A)
 $$
-
-
 
 **Solving the System Using Inverse Matrix**
 
@@ -1028,7 +1025,6 @@ X = A^{-1} \cdot B
 $$
 
 This method provides a **unique solution** only when $$\det(A) \neq 0$$.
-
 
 
 **Augmented Matrix Representation**
@@ -1048,15 +1044,12 @@ $$
 - First \(n\) columns represent matrix \(A\)
 - Last column represents vector \(B\)
 
-
 **Input Format**
 
 - First line: integer T (number of test cases)
 - For each test case:
 - First line: integer n (order of the matrix)
 - Next n lines: n + 1 real numbers representing the augmented matrix (coefficients and constants)
-
-
 
 **Output Format**
 
@@ -1065,6 +1058,7 @@ $$
 - The solution of the system of linear equations
 - If the determinant is zero, a message indicating no unique solution
 
+[⬆](#table-of-contents)
 
 #### Matrix Inversion Code
 ```cpp
@@ -1163,9 +1157,9 @@ int main() {
     fout.close();
     return 0;
 }
-
-
 ```
+
+[⬆](#table-of-contents)
 
 #### Matrix Inversion Input
 ```
@@ -1183,8 +1177,9 @@ int main() {
 2 4 6 2
 3 6 9 7
 
-
 ```
+
+[⬆](#table-of-contents)
 
 #### Matrix Inversion Output
 ```
@@ -1204,10 +1199,9 @@ No unique solution (determinant = 0)
 Test case #3:
 No unique solution (determinant = 0)
 
-
-
-
 ```  
+
+[⬆](#table-of-contents)
 
 ---
 
@@ -1296,6 +1290,7 @@ rate of convergence is relatively slow compared to other numerical methods.
 
 - For each root, the corresponding **sub-interval** and the **approximate root value** are shown.
 
+[⬆](#table-of-contents)
 
 #### Bisection Code
 ```cpp
@@ -1350,11 +1345,15 @@ int main(){
 
 ```
 
+[⬆](#table-of-contents)
+
 #### Bisection Input
 ```
 -10 10
 0.0001
 ```
+
+[⬆](#table-of-contents)
 
 #### Bisection Output
 ```
@@ -1368,6 +1367,8 @@ Roots found:
 Root 1 lies in interval [-2, -1] = -1.741657
 Root 2 lies in interval [5, 6] = 5.741657
 ```
+
+[⬆](#table-of-contents)
 
 ---
 ### False Position Method
@@ -1428,8 +1429,6 @@ where $$\( \varepsilon \)$$ is the prescribed tolerance.
 
 The Regular False Position Method is generally faster than the Bisection Method because it uses the function values to estimate the root, although in some cases convergence may be slower if one endpoint remains fixed.
 
-
-
 **Input Format**
 
 1. The first line contains two real numbers:
@@ -1450,14 +1449,12 @@ $$
 \varepsilon
 $$
 
-
-
 **Output Format**
 
 - All real roots of the function lying within the interval \( [L, R] \) are displayed.
 - For each root, the **corresponding sub-interval** and the **approximate root value** are shown.
 
-
+[⬆](#table-of-contents)
 
 #### False Position Code
 ```cpp
@@ -1514,11 +1511,15 @@ int main() {
 
 ```
 
+[⬆](#table-of-contents)
+
 #### False Position Input
 ```
 -10 10
 0.0001
 ```
+
+[⬆](#table-of-contents)
 
 #### False Position Output
 ```
@@ -1533,6 +1534,8 @@ Root 1 lies in interval [-2, -1] = -1.741657
 Root 2 lies in interval [5, 6] = 5.741657
 
 ```
+
+[⬆](#table-of-contents)
 
 ---
 ### Secant Method
@@ -1572,8 +1575,6 @@ $$
 
 The Secant Method typically converges faster than the Bisection Method, although it **may fail to converge** if the initial guesses are not sufficiently close to the root. It is particularly useful when derivative information is not available, unlike the Newton-Raphson Method.
 
-
-
 **Input Format**
 
 1. The first line contains two real numbers for interval :
@@ -1590,15 +1591,12 @@ $$
 \varepsilon
 $$
 
-
-
 **Output Format**
 
 - The approximate root of the function is displayed.
   - For each root, the corresponding sub-interval and the approximate root value are shown.  
 
----
-
+[⬆](#table-of-contents)
 
 #### Secant Code
 ```cpp
@@ -1653,11 +1651,15 @@ int main() {
 
 ```
 
+[⬆](#table-of-contents)
+
 #### Secant Input
 ```
 -10 10
 0.0001
 ```
+
+[⬆](#table-of-contents)
 
 #### Secant Output
 ```
@@ -1671,6 +1673,8 @@ Roots found:
 Root 1 lies in interval [-2, -1] = -1.741657
 Root 2 lies in interval [5.000000, 6.000000] = 5.741657
 ```
+
+[⬆](#table-of-contents)
 
 ---
 ### Newton-Raphson Method
@@ -1713,8 +1717,6 @@ $$
 
 The Newton-Raphson Method typically converges faster than the Bisection or Secant Methods, especially when the initial guess is sufficiently close to the root. However, it **may fail to converge** if the derivative is zero or the initial guess is far from the actual root.
 
-
-
 **Input Format**
 
 1. The first line contains the tro integer as interval and first integer treat as initial guess:
@@ -1729,14 +1731,12 @@ $$
 \varepsilon
 $$
 
-
-
 **Output Format**
 
 - The approximate root of the function is displayed.  
   - For each root, the corresponding sub-interval and the approximate root value are shown.
 
----
+[⬆](#table-of-contents)
 
 #### Newton-Raphson Code
 ```cpp
@@ -1794,12 +1794,16 @@ int main() {
 
 ```
 
+[⬆](#table-of-contents)
+
 #### Newton-Raphson Input
 ```
 -10 10
 0.0001
 
 ```
+
+[⬆](#table-of-contents)
 
 #### Newton-Raphson Output
 ```
@@ -1814,6 +1818,8 @@ Root 1 lies in interval [-2, -1] = -1.741657
 Root 2 lies in interval [5.000000, 6.000000] = 5.741657
 
 ```
+
+[⬆](#table-of-contents)
 
 ---
 
@@ -1830,8 +1836,6 @@ $$
 $$
 
 It provides a highly accurate approximation of \(y\) at successive points by combining **weighted slopes**.
-
-
 
 **Step Calculation**
 
@@ -1883,6 +1887,7 @@ $$
 - Values are formatted with **6 decimal places**.  
 - Steps continue until **x ≥ xf**.
 
+[⬆](#table-of-contents)
 
 #### Runge-Kutta Code
 ```cpp
@@ -1941,10 +1946,14 @@ int main() {
 
 ```
 
+[⬆](#table-of-contents)
+
 #### Runge-Kutta Input
 ```
 0 1 1 0.2
 ```
+
+[⬆](#table-of-contents)
 
 #### Runge-Kutta Output
 ```
@@ -1982,9 +1991,9 @@ k2 = 149.518623
 k3 = 1516.385273
 k4 = 467416.107809
 At x = 1.000000 : y = 78474.861957
-
-
 ```  
+
+[⬆](#table-of-contents)
 
 ---
 
