@@ -447,7 +447,7 @@ directly from the last column.
 
 
 
-## Mathematical Formulation
+**Mathematical Formulation**
 
 A system of `n` linear equations with `n` unknowns is given by:
 
@@ -498,7 +498,7 @@ $$
 $$
 
 
-**Input Characteristics**
+**Input Format**
 
 - The first line contains an integer $$n$$, the number of equations.
 - The next $$n$$ lines contain $$n+1$$ real numbers each.
@@ -514,7 +514,7 @@ a_{n1}\ a_{n2}\ \cdots\ a_{nn}\ b_n
 \end{aligned}
 $$
 
-**Output Characteristics**
+**Output Format**
 
 - The initial augmented matrix is displayed.
 - The augmented matrix after each Gauss–Jordan elimination step is printed.
@@ -683,7 +683,7 @@ It can be solved in two steps:
 
 
 
-##### Input Characteristics:
+**Input Format**
 
 - The first line contains an integer \(t\), the number of test cases.
 - For each test case:
@@ -706,7 +706,7 @@ a_{11} & a_{12} & \cdots & a_{1n} & b_1 \\
 \end{aligned}
 $$
 
-##### Output Characteristics:
+**Output Format**
 
 - **L matrix** (lower triangular with 1s on diagonal)  
 - **U matrix** (upper triangular)  
@@ -1048,7 +1048,7 @@ $$
 - Last column represents vector \(B\)
 
 
-**Input Characteristics**
+**Input Format**
 
 - First line: integer T (number of test cases)
 - For each test case:
@@ -1278,7 +1278,7 @@ The Bisection Method is simple, reliable, and always convergent, although its
 rate of convergence is relatively slow compared to other numerical methods.
 
 
-**Input Characteristics** 
+**Input Format**
 - The first line contains two real numbers:  
      ```
      L R
@@ -1288,7 +1288,7 @@ rate of convergence is relatively slow compared to other numerical methods.
 - The second line contains the allowed error (tolerance)
 
 
-**Output Characteristics** 
+**Output Format** 
 - All real roots of the function lying within the interval  
   [L, R]
   are displayed.
@@ -1429,7 +1429,7 @@ The Regular False Position Method is generally faster than the Bisection Method 
 
 ---
 
-**Input Characteristics**
+**Input Format**
 
 1. The first line contains two real numbers:
 
@@ -1451,7 +1451,7 @@ $$
 
 ---
 
-**Output Characteristics**
+**Output FFormat**
 
 - All real roots of the function lying within the interval \( [L, R] \) are displayed.
 - For each root, the **corresponding sub-interval** and the **approximate root value** are shown.
@@ -1573,7 +1573,7 @@ The Secant Method typically converges faster than the Bisection Method, although
 
 ---
 
-**Input Characteristics**
+**Input Format**
 
 1. The first line contains two real numbers for interval :
 
@@ -1591,7 +1591,7 @@ $$
 
 ---
 
-**Output Characteristics**
+**Output Format**
 
 - The approximate root of the function is displayed.
   - For each root, the corresponding sub-interval and the approximate root value are shown.  
@@ -1714,7 +1714,7 @@ The Newton-Raphson Method typically converges faster than the Bisection or Secan
 
 ---
 
-## Input Characteristics
+**Input Format**
 
 1. The first line contains the tro integer as interval and first integer treat as initial guess:
 
@@ -1730,7 +1730,7 @@ $$
 
 ---
 
-## Output Characteristics
+**Output Format**
 
 - The approximate root of the function is displayed.  
   - For each root, the corresponding sub-interval and the approximate root value are shown.
