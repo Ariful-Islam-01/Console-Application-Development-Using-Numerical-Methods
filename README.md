@@ -287,19 +287,6 @@ $$
 
 **Back Substitution**: After obtaining the upper triangular matrix, solve for the unknowns starting from the last equation upwards.
 
-After forward elimination, the matrix looks like:
-
-$$
-\left[
-\begin{array}{cccc|c}
-a_{11} & a_{12} & \cdots & a_{1n} & b_1 \\
-0 & a_{22} & \cdots & a_{2n} & b_2' \\
-\vdots & \vdots & \ddots & \vdots & \vdots \\
-0 & 0 & \cdots & a_{nn} & b_n'
-\end{array}
-\right]
-$$
-
 
 **Input Characteristics :**
 
