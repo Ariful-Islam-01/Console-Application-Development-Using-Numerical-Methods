@@ -250,7 +250,7 @@ All interactions are performed via input and output file.
 - **Programming Language:** C / C++  
 - **Compiler:** GCC / g++  
 - **Development Environment:** Code::Blocks / VS Code  
-- **Platform:** Windows / Linux  
+- **Platform:** Windows 
 
 [⬆](#table-of-contents)
 
